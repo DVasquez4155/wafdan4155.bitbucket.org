@@ -74,18 +74,18 @@ window.onload = function () {
         
 
         document.getElementById('footer').innerHTML += "<center> <div class='tricolumn' id='firsttricolumn'></div> <div class='tricolumn' id='secondtricolumn'></div> <div class='tricolumn' id='thirdtricolumn'> </center><center class='centered'> <br> <div class='dark'>Daniel Vasquez Copyright \u00A9 2016 - " + new Date().getFullYear() + " </div> </center>";
-        if (topLinksEnable) {
-        document.getElementById('firsttricolumn').innerHTML += "<a href='" + back + "index.html'>Home</a> <br />";
-        document.getElementById('firsttricolumn').innerHTML += "<a href='" + back + "about.html'>About me</a> <br />";
-        document.getElementById('firsttricolumn').innerHTML += "<a href='" + back + "HomelessGroup2/index.html'>Homeless Project</a> <br />";
-        
-        document.getElementById('secondtricolumn').innerHTML += "<a href='" + back + "Web/index.html'>Web</a> <br />";
-        document.getElementById('secondtricolumn').innerHTML += "<a href='" + back + "Art/index.html'>Art</a> <br />";
-        document.getElementById('secondtricolumn').innerHTML += "<a href='" + back + "Games/index.html'>Games</a> <br />";
-        
-        
-        document.getElementById('thirdtricolumn').innerHTML += "<a href='https://www.facebook.com'> <img class='icon' src='" + back + "contents/fb.png'/> </a>";
-        document.getElementById('thirdtricolumn').innerHTML += "<a href='https://www.twitter.com'> <img class='icon' src='" + back + "contents/twit.png'/> </a>";
+            if (topLinksEnable) {
+            document.getElementById('firsttricolumn').innerHTML += "<a href='" + back + "index.html'>Home</a> <br />";
+            document.getElementById('firsttricolumn').innerHTML += "<a href='" + back + "about.html'>About me</a> <br />";
+            document.getElementById('firsttricolumn').innerHTML += "<a href='" + back + "HomelessGroup2/index.html'>Homeless Project</a> <br />";
+
+            document.getElementById('secondtricolumn').innerHTML += "<a href='" + back + "Web/index.html'>Web</a> <br />";
+            document.getElementById('secondtricolumn').innerHTML += "<a href='" + back + "Art/index.html'>Art</a> <br />";
+            document.getElementById('secondtricolumn').innerHTML += "<a href='" + back + "Games/index.html'>Games</a> <br />";
+
+
+            document.getElementById('thirdtricolumn').innerHTML += "<a href='https://www.facebook.com'> <img class='icon' src='" + back + "contents/fb.png'/> </a>";
+            document.getElementById('thirdtricolumn').innerHTML += "<a href='https://www.twitter.com'> <img class='icon' src='" + back + "contents/twit.png'/> </a>";
         }
 
 
@@ -94,28 +94,27 @@ window.onload = function () {
 
         document.getElementById('head').innerHTML += "<link id='style' rel='stylesheet' type='text/css' href='" + back + "style.css'>";
         document.getElementById('head').innerHTML += "<link rel='icon' href='" + back + "favicon.ico'>";
-
-        document.getElementById('links').innerHTML = "<a href='" + back + "index.html' class='acurrentPageLink'>Home</a>";
-
-        var howManyBacks = [''];
-        for (var i=back.split('/').length; i>1; i--) {
-            if (i == back.split('/').length) {
-                for (var i=2; i<back.split('/').length; i++) {
-                    howManyBacks.push("../");
+        if (topLinksEnable) {
+            document.getElementById('links').innerHTML = "<a href='" + back + "index.html' class='acurrentPageLink'>Home</a>";
+            var howManyBacks = [''];
+            for (var i=back.split('/').length; i>1; i--) {
+                if (i == back.split('/').length) {
+                    for (var i=2; i<back.split('/').length; i++) {
+                        howManyBacks.push("../");
+                    }
                 }
-            }
-            document.getElementById('links').innerHTML += "<span id='>" + i + "'> >> </span>" + "<a href='" + howManyBacks.join('') + "index.html' id='link" + i + "' class='acurrentPageLink'>" + location.href.split('/')[location.href.split('/').length - i] + "</a>";
-            if (howManyBacks[1] == undefined) {
-                if (location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "index.html") {
-                    document.getElementById('link' + i).outerHTML = '';
-                    document.getElementById('>' + i).outerHTML = '';
+                document.getElementById('links').innerHTML += "<span id='>" + i + "'> >> </span>" + "<a href='" + howManyBacks.join('') + "index.html' id='link" + i + "' class='acurrentPageLink'>" + location.href.split('/')[location.href.split('/').length - i] + "</a>";
+                if (howManyBacks[1] == undefined) {
+                    if (location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "index.html") {
+                        document.getElementById('link' + i).outerHTML = '';
+                        document.getElementById('>' + i).outerHTML = '';
+                    }
                 }
-            }
-            if (howManyBacks != './') {
-                howManyBacks.pop()
+                if (howManyBacks != './') {
+                    howManyBacks.pop()
+                }
             }
         }
-
         if (currentSite != 'home') {
             document.getElementById('links').innerHTML += " >> " + "<a href='" + location.href + "' class='acurrentPageLink'>" + currentsite + "</a>";
         }
