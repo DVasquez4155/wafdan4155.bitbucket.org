@@ -27,34 +27,54 @@ function resize() {
         document.getElementById(topbarlinks[i][0]).style.width = size + "px";
     }
 }
-window.addEventListener("resize", resize);
-window.onload = function () {
+if (typeof back !== undefined) {
     var back = '';
+}
+if (typeof webInfo !== undefined) {
+    var webInfo = 'Portfolio';
+}
+if (typeof topLinksEnable !== undefined) {
+    var topLinksEnable = true;
+    window.addEventListener("resize", resize);
+}
+window.onload = function () {
     function headerAndFooterStart() {
         if (typeof startSlideShow != "undefined") {
             startSlideShow(back)
         }
         document.getElementById('header').innerHTML += "<div class='status'><div id='time'></div></div>";
-        document.getElementById('header').innerHTML += "<div class='topbarlinks' id='topbarlinks'></div>";
-        for (var i = 0; i < topbarlinks.length; i++) {
-            if (topbarlinks[i][0] == currentSite) {
-                var link = extraBack + "index.html";
+        
+        if (topLinksEnable) {
+            document.getElementById('header').innerHTML += "<div class='topbarlinks' id='topbarlinks'></div>";
+            for (var i = 0; i < topbarlinks.length; i++) {
+                if (topbarlinks[i][0] == currentSite) {
+                    var link = extraBack + "index.html";
+                }
+                else if (topbarlinks[i][0] == "home") {
+                    var link = back + 'index.html';
+                }
+                else if (topbarlinks[i][0] == "about") {
+                    var link = back + 'about.html';
+                }
+                else {
+                    var link = back + topbarlinks[i][0] + "/index.html";
+                }
+                document.getElementById('topbarlinks').innerHTML += "<a href='" + link + "'><div class='topbarlink' id='" + topbarlinks[i][0] + "'>" + topbarlinks[i][1] + "</div</a>";
             }
-            else if (topbarlinks[i][0] == "home") {
-                var link = back + 'index.html';
+            resize()
+        
+            if (currentSite != "none") {
+                document.getElementById(currentSite).className += " topbarlinkcurrent";
             }
-            else if (topbarlinks[i][0] == "about") {
-                var link = back + 'about.html';
-            }
-            else {
-                var link = back + topbarlinks[i][0] + "/index.html";
-            }
-            document.getElementById('topbarlinks').innerHTML += "<a href='" + link + "'><div class='topbarlink' id='" + topbarlinks[i][0] + "'>" + topbarlinks[i][1] + "</div</a>";
+            
         }
-        resize()
+        else {
+            document.getElementById('header').innerHTML += "<br />"
+        }
         
 
         document.getElementById('footer').innerHTML += "<center> <div class='tricolumn' id='firsttricolumn'></div> <div class='tricolumn' id='secondtricolumn'></div> <div class='tricolumn' id='thirdtricolumn'> </center><center class='centered'> <br> <div class='dark'>Daniel Vasquez Copyright \u00A9 2016 - " + new Date().getFullYear() + " </div> </center>";
+        if (topLinksEnable) {
         document.getElementById('firsttricolumn').innerHTML += "<a href='" + back + "index.html'>Home</a> <br />";
         document.getElementById('firsttricolumn').innerHTML += "<a href='" + back + "about.html'>About me</a> <br />";
         document.getElementById('firsttricolumn').innerHTML += "<a href='" + back + "HomelessGroup2/index.html'>Homeless Project</a> <br />";
@@ -66,13 +86,11 @@ window.onload = function () {
         
         document.getElementById('thirdtricolumn').innerHTML += "<a href='https://www.facebook.com'> <img class='icon' src='" + back + "contents/fb.png'/> </a>";
         document.getElementById('thirdtricolumn').innerHTML += "<a href='https://www.twitter.com'> <img class='icon' src='" + back + "contents/twit.png'/> </a>";
-
-
-        if (currentSite != "none") {
-            document.getElementById(currentSite).className += " topbarlinkcurrent";
         }
-        document.getElementById('title').innerHTML = currentsite + " - Portfolio";
-        document.getElementById('h1Title').innerHTML = currentsite + " - Portfolio";
+
+
+        document.getElementById('title').innerHTML = currentsite + " - " + webInfo;
+        document.getElementById('h1Title').innerHTML = currentsite + " - " + webInfo;
 
         document.getElementById('head').innerHTML += "<link id='style' rel='stylesheet' type='text/css' href='" + back + "style.css'>";
         document.getElementById('head').innerHTML += "<link rel='icon' href='" + back + "favicon.ico'>";
@@ -136,7 +154,7 @@ window.onload = function () {
         setTimeout(timeChange, 0)
     };
     var favicon = new Image();
-    favicon.src = 'favicon.ico';
+    favicon.src = back + 'favicon.ico';
     var backNum = 0;
     var extraBack = '';
     var homeBack = '';
