@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--
+Homeless Project - November 29, 2016
+       CEO: Jeremiah S.
+     Coder: Daniel V.
+    Artist: Danielle P.
+Researcher: Malik R.
+-->                        
+<?php
+    $dir    = '/tmp';
+    $files1 = scandir($dir);
+    $files2 = scandir($dir, 1);
+
+    echo($files1);
+    echo($files2);
+?>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="icon" href="favicon.ico">
+        <title id='title'>Hungry, Hungry, Homeless</title>
+        <style>
+        </style>
+        <script src='contents/sidebar.js' id='newsScript'></script>
+        <script src='contents/headerandfooter.js'></script>
+    </head>
+    <body>
+        <div id='sidebar' class='side'>
+        </div>
+        
+        <div class='main'>
+            <header id='header'>
+            </header>
+            <div class='body'>
+                    
+                <center>
+                    <br />
+                    <div class='box'>
+                        <div id='imageContainer'>
+                            <div class='container'>
+                                <p></p>
+                                <br />
+                                <img id='slideshow'/>
+                            </div>
+                            <p></p>
+                            <div id='buttons'>
+                            </div>
+                            <p></p>
+
+                        </div>
+                    </div>
+                    
+                    <div class='box'>
+                        <h3>Testimonials</h3>
+                        <div id='testimonials'>
+                            <div id='testimonialList'>
+                                
+                            </div>
+                            <br />
+                            <a class='dark' href="testimonials.html">See more</a>
+                        </div>
+                    </div>
+                    
+                </center>
+
+                        
+                        
+                <p></p>
+                <p></p>
+                <br />
+            </div>
+
+            <footer id='footer'>
+            </footer>
+        </div>
+    </body>
+    <script src='testimonials.js'></script>
+    
+    <script src="contents/imagescroller.js"></script>
+    <script>
+        var images = ['http://adisability.org/images/volunteer.jpg',
+                      'http://unionstationhs.org/wp-content/uploads/2013/04/YPS-Volunteering.jpg',
+                      'http://www1.pictures.gi.zimbio.com/Hard+Times+Denver+Shelter+Serves+Up+Thanksgiving+Cr_hevZGfPwl.jpg',
+                      'http://cache1.asset-cache.net/xd/484371195.jpg?v=1&c=IWSAsset&k=2&d=ABB5BA8BD5780A34BCAC27B1AA7A6B56D1DB44E5599D888AFCBD01394FB40A30F6CFD3EB6274B76D',];
+    </script>
+    <script>
+        var currentSite = 'home';
+        var currentsite = 'Home';
+        var back = '';
+        sidebarStart();
+        headerAndFooterStart();
+        testHome()
+        startSlideShow(back)
+    </script>
+
+</html>

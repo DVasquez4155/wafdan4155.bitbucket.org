@@ -1,0 +1,440 @@
+body {
+/**
+Font
+**/
+    font-family: 'Source Sans Pro', sans-serif;
+/**
+Colors
+**/
+    background-color: lightgray;
+}
+center.colored, header, div.main, footer {
+    background-color: white;
+}
+#header {
+/*
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-image: url(contents/banner.jpg);
+    background-size: cover;
+*/
+
+}
+div.topbarlink {
+    background-color: #f69101;
+}
+div.body, div.topbarlinkcurrent, div.topbarlink:hover, .background{
+    background-color: #fcaf0b;
+}
+div.topbarlink:hover {
+    color: white;
+    top: 0em;
+}
+div.topbarlinkcurrent:hover {
+    color: white;
+}
+div.sidebox {
+    background-color: #323232;
+    color: white;
+}
+
+
+/**
+Other Styles
+**/
+.main, .body {
+    position: relative;
+    top: -3em;
+}
+ .topbarlinks {
+    position: relative;
+    top: -5em;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+div.topbarlinkcurrent:hover {
+    transition: .5s;
+}
+div.topbarlink:hover {
+    transition: .5s;
+}
+div.topbarlink {
+    transition: .75s;
+}
+div.main {
+    float: right;
+    position: relative;
+    right: 2.65em;
+    width: 75%;
+}
+div.mainbody {
+    background-color: white;
+    float: right;
+    position: relative;
+    right: 2.65em;
+    width: 75%;
+    top: 2em;
+}
+footer {
+    display: block;
+    margin-bottom: 20px;
+    position: relative;
+    top: -0.25em;
+}
+div.body {
+    display: block;
+    margin-bottom: 20px;
+    width: 94%;
+    position: relative;
+    left: 2em;
+}
+div.side {
+    display: block;
+    margin-bottom: 20px;
+    width: 20%;
+    float: right;
+    position: relative;
+    right: 2em;
+}
+h1 {
+    text-align: center;
+}
+a {
+    color: black;
+    width: auto;
+    text-decoration: none;
+    transition: .25s;
+}
+a:visited {
+    color: black;
+    transition: .25s;
+}
+a:hover  {
+    color: #fcbc32;
+    transition: .25s;
+}
+a:active {
+    color: #fcaf0b;
+    transition: .25s;
+}
+img.logo {
+    top: -50px;
+    display: inline-block;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    
+}
+div.topbarlinks {
+    display: block;
+    margin-bottom: 20px;
+    width: 94%;
+    position: relative;
+    left: 2em;
+    height: 30px;
+}
+div.topbarlink {
+    padding: 10px;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    top: 1.7em;
+    display: inline-block;
+    border-radius: 50px/20px 20px 0px 0px;
+    text-align: center;
+}
+div.topbarlinkcurrent {
+    position: relative;
+    padding: 10px;
+    height: 100px;
+    width: 100px;
+    border-radius: 50px/20px 20px 0px 0px;
+    display: inline-block;
+    transition: .5s;
+    text-align: center;
+}
+div.box {
+    display: inline-block;
+    margin-bottom: 20px;
+    width: 90%;
+    height: 100%;
+}
+div.halfbox {
+    vertical-align: top;
+    display: inline-block;
+    margin-bottom: 20px;
+    width: 44%;
+    margin: 10px;
+    padding: 10px;
+    text-align: left;
+}
+div.news {
+    display: inline-block;
+    margin-bottom: 20px;
+    height: 100%;
+    width: 44%;
+    margin: 10px;
+    padding: 10px;
+    text-align: left;
+}
+center.centered {
+    width: 100%;
+    background-color: white;
+}
+img.user {
+    width: 150px;
+    height: 150px;
+    border-style: solid;
+    border-width: 0.5px;
+    background-color: burlywood;
+}
+
+img.icon {
+    width: 30px;
+    height: 30px;
+}
+div.icons {
+    position: relative;
+    float: right;
+    right: 2em;
+}
+img.homeIcon {
+    width: 60px;
+    height: 60px;
+}
+img.donate {
+    width: 100%;
+}
+div.tricolumn {
+    display: inline-block;
+    margin-bottom: 20px;
+    width: 20%;
+    margin: 10px;
+    padding: 10px;
+    text-align: left;
+}
+#firsttricolumn {
+    float: left;
+}
+#thirdtricolumn {
+    float: right;
+}
+#disappear {
+    opacity: 0;
+}
+img.badge {
+    width: 35px;
+    height: 35px;
+}
+img.badgeNA {
+    width: 35px;
+    height: 35px;
+    opacity: 0.5;
+}
+#calendar {
+    background-color: white;
+}
+
+#one {
+    background-color: mediumpurple;
+}
+
+/**
+Do not touch, image scroller styles
+
+**/
+body {
+    background-color: dimgray;
+}
+img#slideshow {
+      max-width:100%;
+      width: auto;
+      height: 90%;
+}
+div#imageContainer {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+
+}
+div.container {
+    display: inline-block;
+    max-width: 600px;
+    width: 100%;
+    height: 400px;
+}
+img.button {
+    height: 10px;
+    width: 10px;
+    padding: 2.5px;
+    cursor: pointer;
+}
+/**
+Do not touch, image scroller styles
+
+**/
+div#currentPageLink {
+    padding: 1em;
+    margin: 1em;
+    color: grey;
+}
+.acurrentPageLink {
+    color: grey;
+    width: auto;
+    text-decoration: none;
+    transition: .25s;
+}
+.acurrentPageLink:visited {
+    color: grey;
+    transition: .25s;
+}
+.acurrentPageLink:hover  {
+    color: white;
+    transition: .25s;
+    text-decoration: underline;
+}
+.acurrentPageLink:active {
+    color: white;
+    transition: .25s;
+    text-decoration: underline;
+}
+.dark {
+    color: white;
+    width: auto;
+    text-decoration: none;
+    transition: .25s;
+}
+.dark:visited {
+    color: white;
+    transition: .25s;
+}
+.dark:hover  {
+    color: white;
+    transition: .25s;
+    text-decoration: underline;
+}
+
+.dark:active {
+    color: white;
+    transition: .25s;
+    text-decoration: underline;
+}
+
+.light {
+    color: black;
+    width: auto;
+    text-decoration: none;
+    transition: .25s;
+}
+.light:visited {
+    color: black;
+    transition: .25s;
+}
+.light:hover  {
+    color: black;
+    transition: .25s;
+    text-decoration: underline;
+}
+
+.light:active {
+    color: black;
+    transition: .25s;
+    text-decoration: underline;
+}
+.forms {
+    text-align: center;
+    display: inline-block;
+    text-align: left;
+    
+}
+form {
+    text-align: left;
+    
+}
+label {
+    
+    display: inline-block;
+    text-align: right;
+    margin-right: 0.25em;
+    padding: 0.1em;
+}
+.defaultImageProfile {
+    width: 50%;
+    margin-top: 5px;   
+    vertical-align: middle;
+}
+.boxSpecial {
+    display: block;
+    margin-bottom: 20px;
+    width: 20%;
+    position: relative;
+    background-color: #f69101;
+    width: 95%;
+    padding: 1em;
+    text-align: left;
+}
+.autoDiv {
+    display: inline-block;
+    text-align: left;
+}
+.auto {
+    display: inline-block;
+    width: 20%;
+}
+.autoL {
+    display: inline-block;
+    width: 55%;
+}
+.star {
+    width: 25px;
+}
+#date {
+    width: 100%;
+}
+#sumbitForm {
+    float: right;
+}
+.eventBox {
+    display: inline-block;
+    margin-bottom: 20px;
+    width: 90%;
+    text-align: left;
+    padding: 2em;
+    /* Look at this */
+    background-color: #F69C1A;
+    
+}
+object {
+    width: 100%;
+    overflow : hidden;
+}
+.eventbody {
+    background-color: #f69101;
+}
+.right {
+    float: right;
+}
+.center {
+    text-align: center;
+}
+.eventTitle {
+    font-size: 18px;
+    font-weight: bold;
+}
+.left {
+    text-align: left;
+}
+object.event {
+    display: inline-block;
+    width: 100%;
+    border: none;
+    height: 100%;
+}
+.gray {
+    filter: grayscale(100%);
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--
+Homeless Project - November 29, 2016
+       CEO: Jeremiah S.
+     Coder: Daniel V.
+    Artist: Danielle P.
+Researcher: Malik R.
+-->
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="icon" href="favicon.ico">
+        <title id='title'>Hungry, Hungry, Homeless</title>
+        <style>
+        </style>
+        <script src='contents/sidebar.js' id='newsScript'></script>
+        <script src='contents/headerandfooter.js'></script>
+    </head>
+    <body>
+        <div id='sidebar' class='side'>
+        </div>
+        
+        <div class='main'>
+            <header id='header'>
+            </header>
+        
+        
+            <div class='body'>
+                <div id='currentPageLink'>
+                    <span>
+                    <a href="index.html" class='acurrentPageLink'>Home</a>
+                     >> 
+                    <a href="index.html"  id='currentALink' class='acurrentPageLink'></a>
+                    </span>
+                </div>
+                <center>
+                    <h3>Credits</h3>
+                    <div class='halfbox'>
+                        <h4>Google:</h4>
+                        <a class='dark' href="https://www.google.com/maps">Google Maps Widget</a><br /><br />
+                        <a class='dark' href="https://news.google.de/news/section?hl=de&pz=1&ned=de&q=Homeless">Homeless News Feed</a>
+                        
+                    </div>
+                    <div class='halfbox'>
+                        <h4>Surving Waves:</h4>
+                        <a class='dark' href="http://www.surfing-waves.com/feed.htm">News Feed Widget</a><br /><br />
+                        
+                    </div>
+                    <div class='halfbox'>
+                        <h4>Daniel Vasquez:</h4>
+                        Functions of this Homeless Website<br /><br />
+                        <a href="index.html" class="dark">In real life pictures</a><br /><br />
+                        
+                    </div>
+                    <div class='halfbox'>
+                        <h4>Danielle Phan:</h4>
+                        SVG Images and Icons<br /><br />
+                        Design the Website<br /><br />
+                        Look up Events<br /><br />
+                        
+                    </div>
+                    <div class='halfbox'>
+                        <h4>Jeremiah Sola:</h4>
+                        Add Testimonials<br /><br />
+                        
+                    </div>
+                    <div class='halfbox'>
+                        
+                    </div>
+                </center>
+            </div>
+
+            <footer id='footer'>
+            </footer>
+        </div>
+    </body>
+    <script>
+        var hrefLocation = location.href.split('/');
+        for (var i=0; i<hrefLocation.length+1; i++) {
+            hrefLocation.shift();
+        }
+        hrefLocation = hrefLocation.pop().replace('.html', '');
+        if (hrefLocation.split('#')[0] == 'index') {
+            hrefLocation = 'Events';
+        }
+        hrefLocation = hrefLocation.split('')
+        hrefLocation[0] = hrefLocation[0].toUpperCase();
+        document.getElementById('currentALink').innerHTML = hrefLocation.join('').split('#')[0];
+        document.getElementById('currentALink').href = location.href;
+    </script>
+    <script>
+        var currentSite = 'about';
+        var currentsite = 'Credits';
+        var back = '';
+        sidebarStart();
+        headerAndFooterStart();
+    </script>
+</html>

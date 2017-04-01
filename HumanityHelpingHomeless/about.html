@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!--
+Homeless Project - November 29, 2016
+       CEO: Jeremiah S.
+     Coder: Daniel V.
+    Artist: Danielle P.
+Researcher: Malik R.
+-->
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="icon" href="favicon.ico">
+        <title id='title'>Humanity Helping Homelessnes</title>
+        <style>
+        </style>
+        <script src='contents/sidebar.js' id='newsScript'></script>
+        <script src='contents/headerandfooter.js'></script>
+    </head>
+    <body>
+        <div id='sidebar' class='side'>
+        </div>
+        
+        <div class='main'>
+            <header id='header'>
+            </header>
+        
+        
+            <div class='body'>
+                <div id='currentPageLink'>
+                    <span>
+                    <a href="index.html" class='acurrentPageLink'>Home</a>
+                     >> 
+                    <a href="index.html"  id='currentALink' class='acurrentPageLink'></a>
+                    </span>
+                </div>
+                <center>
+                </center>
+                <center>
+                    
+                    <div class='box'>
+                        
+                        <h3>Mission Statement</h3>
+                        
+                        <span>It is our duty in Humanity Helping Homelessnes</span>
+                        <span>to aid the homeless by gathering volunteers</span>
+                        <span>and donations.<br /> Our site will guide people</span>
+                        <span>to become active members of a group</span>
+                        <span>that aids the unfortunate.</span>
+                        <!--<input style='background-image: url(fb-art.png); background-repeat: no-repeat; text-indent: 20px; w' placeholder='test'/>-->
+                        <p />
+                        <br />
+                    </div>
+                    <div class='halfbox'>
+                        <h3>Humanity Helping Homelessnes</h3>
+                        <a class='light' href="tel:1-540-466-3536">Phone #: +1 (540) HOM-ELE6</a><br>
+                        <a class='light' href="https://www.google.com/maps/place/Silicon+Valley+Career+Technical+Education/@37.277886,-121.8681487,17z/data=!3m1!4b1!4m5!3m4!1s0x808e33b037e3d32f:0x5f130a6cb1c008d5!8m2!3d37.277886!4d-121.86596">Location: Silicon Valley Career Technical Education<br>Address: 760 Hillsdale Ave<br>San Jose, CA 95136</a>
+                        
+                        <p></p>
+                        <br />
+                        <h3>Our Team</h3>
+                        <span>Jeremiah Sola</span>
+                        <br />
+                        <span>Human Resources</span>
+                        <br />
+
+                        <br />
+                        <br />
+                        
+                        
+                        <span>Daniel Vasquez</span>
+                        <br />
+                        <span>Web Developer</span>
+                        <br />
+
+                        <br />
+                        <br />
+                        
+                        
+                        <span>Danielle Phan</span>
+                        <br />
+                        <span>Web and UI Designer</span>
+                        <br />
+
+                        <br />
+                        <br />
+                        
+                        
+                        <span>Malik Reed</span>
+                        <br />
+                        <span>Research Associate</span>
+                        <br />
+
+                        <br />
+                        <br />
+                    </div>
+                    <div class="halfbox" style='height:360px; float: right;'>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3174.727604563535!2d-121.86814868392064!3d37.2778859798529!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808e33b037e3d32f%3A0x5f130a6cb1c008d5!2sSilicon+Valley+Career+Technical+Education!5e0!3m2!1sen!2sus!4v1480718829000" width="90%" height="90%" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                    
+                    <br>
+                    
+                    <br />
+                </center>
+            </div>
+            <footer id='footer'>
+            </footer>
+        </div>
+    </body>
+    <script>
+        var hrefLocation = location.href.split('/');
+        for (var i=0; i<hrefLocation.length+1; i++) {
+            hrefLocation.shift();
+        }
+        hrefLocation = hrefLocation.pop().replace('.html', '');
+        hrefLocation = hrefLocation.split('')
+        hrefLocation[0] = hrefLocation[0].toUpperCase();
+        document.getElementById('currentALink').innerHTML = hrefLocation.join('').split('#')[0];
+        document.getElementById('currentALink').href = location.href;
+    </script>
+    <script>
+        var currentSite = 'about';
+        var currentsite = 'About Us';
+        var back = '';
+        sidebarStart();
+        headerAndFooterStart();
+    </script>
+</html>

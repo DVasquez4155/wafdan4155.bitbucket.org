@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+Homeless Project - November 29, 2016
+       CEO: Jeremiah S.
+     Coder: Daniel V.
+    Artist: Danielle P.
+Researcher: Malik R.
+-->
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="icon" href="favicon.ico">
+        <title id='title'>Hungry, Hungry, Homeless</title>
+        <style>
+        </style>
+        <script src='contents/sidebar.js' id='newsScript'></script>
+        <script src='contents/headerandfooter.js'></script>
+    </head>
+    <body>
+        <div id='sidebar' class='side'>
+        </div>
+        
+        <div class='main'>
+            <header id='header'>
+            </header>
+        
+        
+            <div class='body'>
+                <div id='currentPageLink'>
+                    <span>
+                    <a href="index.html" class='acurrentPageLink'>Home</a>
+                     >> 
+                    <a href="index.html"  id='currentALink' class='acurrentPageLink'></a>
+                    </span>
+                </div>
+                <center>
+                    
+                    <div class='box'>
+                        
+                        <h3>Advice and Tips</h3>
+                        <div class='boxSpecial center'>
+                            <div class="autoDiv">
+                                <ol>
+	                                <li>Wear something easy to move in</li>
+	                                <li>Wear something you are okay with getting dirty</li>
+	                                <li>Dress appropriately for the weather</li>
+	                                <li>Carpool to the event with friends and family</li>
+	                                <li>Leave your bags in the car</li>
+	                                <li>Bring as many people as you can</li>
+                                </ol>
+                            </div>
+                        
+                        </div>
+                        <br />
+                    </div>
+                    <a href='https://goo.gl/forms/03tVzumbh7bJAjOr2'>
+	                    <img src='HomelessIcons/feedback.png' style='max-height: 200px; border-radius: 20px;'/>
+                    </a>
+                    <br>
+                    <br>
+                    <div class='box'>
+                        
+                        <h3>Frequently Asked Questions</h3>
+                        <div class='boxSpecial center'>
+                            <div class="autoDiv">
+                            <p>Q: Do I have to donate?</p>
+                            <p>A: No, but look at our cool reward</p>
+			    <img style='max-height: 300px;' src='contents/shirt.png'/>
+                            <p>Q: Where can I find events?</p>
+                            <p>A: You can find event's tab <a href='events/index.html' class='dark'>here</a></p>
+                            <p>Q: Is this site legit?</p>
+                            <p>A: Yes.</p>
+                        </div>
+                    </div>
+                    
+                    
+                    <br>
+                    <br>
+                </center>
+            </div>
+            <footer id='footer'>
+            </footer>
+        </div>
+    </body>
+    <script>
+        var currentSite = 'info';
+        var currentsite = 'Volunteer Information';
+        document.getElementById('currentALink').innerHTML = currentsite;
+        document.getElementById('currentALink').href = location.href;
+        var back = '';
+        sidebarStart();
+        headerAndFooterStart();
+    </script>
+</html>
