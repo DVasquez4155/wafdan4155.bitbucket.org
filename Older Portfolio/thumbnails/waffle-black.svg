@@ -1,0 +1,31 @@
+<svg height='240' width='240' xmlns="http://www.w3.org/2000/svg"
+  viewbox='0 0 240 240'
+  xmlns:xlink= "http://www.w3.org/1999/xlink">
+<!--Icon-->
+<g transform='scale(30)'>
+<rect x='0' y='0' width="2" height="2" fill='black' />
+
+<rect x='3' y='0' width="2" height="2" fill='black' />
+
+<rect x='6' y='0' width="2" height="2" fill='black' />
+
+<rect x='0' y='0' width="2" height="2" fill='black' />
+
+<rect x='0' y='3' width="2" height="2" fill='black' />
+
+<rect x='0' y='6' width="2" height="2" fill='black' />
+    
+<rect x='3' y='3' width="2" height="2" fill='black' />
+    
+<rect x='6' y='6' width="2" height="2" fill='black' />
+    
+<rect x='3' y='6' width="2" height="2" fill='black' />
+
+<rect x='6' y='3' width="2" height="2" fill='black' />
+</g>
+
+
+
+
+<!---->
+</svg>

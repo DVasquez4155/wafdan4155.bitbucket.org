@@ -1,0 +1,59 @@
+<svg height='72' width='72' xmlns="http://www.w3.org/2000/svg"
+  viewbox='0 0 72 72'
+  xmlns:xlink= "http://www.w3.org/1999/xlink">
+    <!--Icon-->    
+                              
+
+    <polygon fill='none' stroke='darkturquoise' points='0 0 72 0 72 72 0 72
+                                                        
+                                                        0 0 4 0
+                                                        36 32
+                                                        68 0 72 4
+                                                        
+                                                        40 36
+                                                        72 68
+                                                        68 72
+                                                        
+                                                        36 40
+                                                        
+                                                        4 72
+                                                        0 68
+                                                        
+                                                        32 36
+                                                        0 4
+                                                        4 0
+                                                        
+                                                        
+                     z'/>
+    <polygon fill='darkturquoise' points='4 0
+                                                        36 32
+                                                        68 0
+                     z'/>
+    <polygon fill='darkturquoise' points='72 4
+                                                        
+                                                        40 36
+                                                        72 68
+                     z'/>
+
+    <polygon fill='darkturquoise' points='68 72
+                                                        
+                                                        36 40
+                                                        
+                                                        4 72
+                     z'/>
+
+    <polygon fill='darkturquoise' points='0 68
+                                                        
+                                                        32 36
+                                                        0 4
+                     z'/>
+    
+    <polyline points="0 0 12 12" stroke-width='6' stroke="darkturquoise" />
+    <polyline points="72 72 60 60" stroke-width='6' stroke="darkturquoise" />
+    <polyline points="72 0 60 12" stroke-width='6' stroke='darkturquoise' />
+    <polyline points="12 60 0 72" stroke-width='6' stroke='darkturquoise' />
+    
+    
+    
+<!---->
+</svg>

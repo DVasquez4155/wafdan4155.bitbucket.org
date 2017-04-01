@@ -1,0 +1,23 @@
+<svg height='600' width='600' xmlns="http://www.w3.org/2000/svg"
+  viewbox='0 0 600 600'
+  xmlns:xlink= "http://www.w3.org/1999/xlink">
+    <rect width='600' height='600' fill='white'/>
+<!--Icon-->
+<path d='M 150 95
+         C 119 95 110 80 88 80
+         C 60 80 12 107 12 162
+         C 12 240 60 310 92 311
+         C 119 310 121 300 145 300
+         C 170 300 173 310 201 310
+         C 220 310 255 260 259 220
+         C 210 200 203 130 260 108
+         
+         C 245 90 230 80 207 80
+         C 180 80 170 95 145 95'
+      fill='black' stroke='white' stroke-width='1' stroke-linejoin='round' stroke-linecap='round' />
+<path d='M 197 10
+         C 160 10 129 50 135 85
+         C 170 80 200 50 197 10'
+      fill='black' stroke='white' stroke-width='1' stroke-linejoin='round' stroke-linecap='round' />
+
+    </svg>

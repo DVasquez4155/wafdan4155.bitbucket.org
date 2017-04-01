@@ -1,0 +1,35 @@
+<svg height='100' width='100' xmlns="http://www.w3.org/2000/svg"
+                      viewbox='0 0 100 100'
+                      xmlns:xlink= "http://www.w3.org/1999/xlink">
+                        
+    <!--H-->
+
+    <defs>
+       <radialGradient id="orange" cx="0%" cy="40%" r="80%" fx="15%" fy="35%">
+         <stop offset="0%" style="stop-color:rgb(240,240,240);stop-opacity:1" />
+         <stop offset="100%" style="stop-color:rgb(255,153,0);stop-opacity:1" />
+       </radialGradient>
+    </defs>
+    <!--Icon-->
+
+    <defs>
+        <clipPath id='ball'>
+            <circle cx='50' cy='50' r='50'/>
+        </clipPath>
+    </defs>
+
+    <g id="basketball">
+        <circle cx='50' cy='50' r='50' fill="url(#orange)" stroke="black"/>
+
+        <g clip-path='url(#ball)'>
+            <circle cx='0' cy='0' r='50' fill="none" stroke-width="1px" stroke="black"/>
+            <circle cx='100' cy='100' r='50' fill="none" stroke-width="1px" stroke="black"/>
+
+            <line x1="0" y1="100" x2="100" y2="0" fill="none" stroke-width="1px" stroke="black"/>
+            <line x1="0" y1="0" x2="100" y2="100" fill="none" stroke-width="1px" stroke="black"/>
+        </g>
+    </g>
+
+
+<!---->
+</svg>

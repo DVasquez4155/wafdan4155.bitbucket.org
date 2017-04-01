@@ -1,0 +1,155 @@
+<svg width='400' height='600' viewBox='0 0 400 600' xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+
+    <!--Background-->
+    <rect x='0' y='0' width='400' height='600' fill='black' id='background'/>
+    <!--Shapes-->
+    <g transform="rotate(0 0 0)">
+        <polygon points="80 300 90 290 310 290 320 300 310 310 90 310"  id="g"/>
+        <rect x='60' y='50' width="20" height="240" fill="dimgrey" id="f"/>
+        <rect x='320' y='50' width="20" height="240" fill="dimgrey" id="b"/>
+        <rect x='60' y='310' width="20" height="240" fill="dimgrey" id="e"/>
+        <rect x='320' y='310' width="20" height="240" fill="dimgrey" id="c"/>
+        <rect x='80' y='30' width="240" height="20" fill="dimgrey" id="a"/>
+        <rect x='80' y='550' width="240" height="20" fill="dimgrey" id="d"/>
+        <rect x='190' y='310' width="20" height="240" fill="dimgrey" id="m"/>
+        <rect x='190' y='270' width="20" height="320" fill="dimgrey" id="x" transform="rotate(45 200 430)"/>
+        <rect x='190' y='270' width="20" height="320" fill="dimgrey" id="v" transform="rotate(-45 200 430)"/>
+        <rect x='190' y='10' width="20" height="320" fill="dimgrey" id="k" transform="rotate(45 200 170)"/>
+        <rect x='190' y='10' width="20" height="320" fill="dimgrey" id="y" transform="rotate(-45 200 170)"/>
+        <rect x='190' y='50' width="20" height="240" fill="dimgrey" id="z"/>
+    </g>
+    
+    <!--
+    <use x="0" y="-260" xlink:href="#line" fill="red"/>
+    <use x="0" y="260" xlink:href="#line" fill="red"/>
+    <use x="0" y="0" transform="rotate(90 70 300)" xlink:href="#line" fill="red" id="vLine"/>
+    <use x="0" y="-260" xlink:href="#vLine" fill="red"/>
+    <use x="260" y="-260" xlink:href="#vLine" fill="red"/>
+    <use x="260" y="0" xlink:href="#vLine" fill="red"/>
+    -->
+    <script>
+        <![CDATA[
+            var translationTable = {
+                'all' : 'abcdefgmkvxyz',
+                '#' : 'abcdefgmkvxyz',
+                ' ' : '',
+                '0' : 'abcdef',
+                '1' : 'bc',
+                '2' : 'abdeg',
+                '3' : 'abcdg',
+                '4' : 'bcfg',
+                '5' : 'acdfg',
+                '6' : 'acdefg',
+                '7' : 'abc',
+                '8' : 'abcdefg',
+                '9' : 'abcdfg',
+                ':' : 'g',
+                '#a' : 'a',
+                '#b' : 'b',
+                '#c' : 'c',
+                '#d' : 'd',
+                '#e' : 'e',
+                '#f' : 'f',
+                '#g' : 'g',
+                '#m' : 'm',
+                '#x' : 'x',
+                '#v' : 'v',
+                '#k' : 'k',
+                '#y' : 'y',
+                '#z' : 'z',
+                'A' : 'abcefg',
+                'B' : 'cdefg',
+                'C' : 'deg',
+                'D' : 'bcdeg',
+                'E' : 'adefg',
+                'F' : 'aefg',
+                'G' : 'acdefg',
+                'H' : 'bcefg',
+                'h' : 'cefg',
+                'I' : 'ef',
+                'i' : 'e',
+                'J' : 'bcd',
+                'K' : 'kvef',
+                'L' : 'def',
+                'M' : 'gmce',
+                'N' : 'ceg',
+                'O' : 'cdeg',
+                'P' : 'abefg',
+                'p' : 'abefg',
+                'Q' : 'abcfg',
+                'R' : 'abefgv',
+                'S' : 'acdfg',
+                'T' : 'amz',
+                'U' : 'bcdef',
+                'V' : 'vc',
+                'W' : 'mced',
+                'X' : 'xv',
+                'Y' : 'bfgm',
+                'Z' : 'abged',
+            };
+            function turnOn (id) {
+                document.getElementById(id).setAttribute('fill', color);
+                document.getElementById('background').setAttribute('fill', bColor);
+            }
+            function turnOff (id) {
+                document.getElementById(id).setAttribute('fill', colorOff)
+            }
+            function turnOffAll() {
+                turnOff('a')
+                turnOff('b')
+                turnOff('c')
+                turnOff('d')
+                turnOff('e')
+                turnOff('f')
+                turnOff('g')
+                turnOff('m')
+                turnOff('k')
+                turnOff('v')
+                turnOff('x')
+                turnOff('y')
+                turnOff('z')
+            }
+            
+
+
+            function turnOnSome (s) {
+                turnOffAll();
+                for (var i = 0; i<s.length; i++) {
+                    turnOn(s[i])
+                    
+                }
+            }
+            
+            
+            window.onhashchange = window.onload = function() {
+                var numberAndColor = document.location.hash.substr(1);
+                var nc = numberAndColor.split(',');
+                var number = nc[0];
+                color = nc[1];
+                bColor = nc[2];
+                colorOff = nc[3];
+                if (color == null) {
+                    color = "#09F009"
+                }
+                if (bColor == null) {
+                    bColor = "black"
+                }
+                if (colorOff == null) {
+                    colorOff = "dimgrey"
+                }
+                if (color == "") {
+                    color = "#09F009"
+                }
+                if (bColor == "") {
+                    bColor = "black"
+                }
+                if (colorOff == "") {
+                    colorOff = "dimgrey"
+                }
+                var segments = translationTable[number];
+                    turnOnSome (segments);
+            }
+        ]]>
+    </script>
+
+</svg>

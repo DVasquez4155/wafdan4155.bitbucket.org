@@ -1,0 +1,47 @@
+<svg height='240' width='700' xmlns="http://www.w3.org/2000/svg"
+  viewbox='0 0 700 240'
+  xmlns:xlink= "http://www.w3.org/1999/xlink">
+  
+<!--Clipping Paths-->
+<defs>
+    <clipPath id='e'>
+        <polygon points='595 120 695 220
+        495 220 495 20 695 20 695 120 z'/>
+    </clipPath>
+    <clipPath id='crossbar'>
+        <circle cx='595' cy='120' r='62.5'/>
+    </clipPath>
+    <clipPath id='m'>
+        <rect x='0' y='0' width="1000" height="100"/>
+    </clipPath>
+</defs>
+<!--Shapes-->
+<g transform='translate(0 30)'>
+<!--m-->
+<polyline points='60 180 60 60' stroke='#4285f4' stroke-width='25'/>
+<polyline points='110 180 110 100' stroke='#4285f4' stroke-width='25'/>
+<polyline points='160 180 160 100' stroke='#4285f4' stroke-width='25'/>
+<circle cx='85' cy='100' r='25' fill='none' stroke='#4285f4' stroke-width='25' clip-path='url(#m)'/>
+<circle cx='135' cy='100' r='25' fill='none' stroke='#4285f4' stroke-width='25' clip-path='url(#m)'/>
+<!--o-->
+<circle cx='250' cy='120' r='50' stroke='#ea4335' stroke-width='25' fill='none'/>
+<!--b-->
+<circle cx='385' cy='120' r='50' stroke='#fbbc05' stroke-width='25' fill='none'/>
+<polyline points='335 180 335 7.5' stroke='#fbbc05' stroke-width='25'/>
+
+<!--i-->
+
+<polyline points='470 180 470 60' stroke='#4285f4' stroke-width='25'/>
+<polyline points='470 50 470 25' stroke='#4285f4' stroke-width='25'/>
+<!--l-->
+<polyline points='510 180 510 7.5' stroke='#34a853' stroke-width='25'/>
+<!--e-->
+<g transform='rotate(-22.5 595 120)'>
+<circle cx='595' cy='120' r='50' stroke='#ea4335' stroke-width='25' fill='none' clip-path='url(#e)'/>
+<polyline points='545 120 657.5 120' stroke='#ea4335' stroke-width='25' clip-path='url(#crossbar)'/>
+</g>
+<!---->
+</g>
+
+    
+</svg>

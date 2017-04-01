@@ -1,0 +1,89 @@
+<svg width='240' height='240' viewBox='0 0 240 240' xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+
+    <!--Background-->
+    <rect x='0' y='0' width='240' height='240' fill='beige' />
+    <!--Shapes-->
+    <g id="images">
+        <g id="ubuntu" transform="translate(240 0)">
+            <rect x='0' y='0' width="240" height="240" fill='#E95420'/>
+
+            <circle cx='120' cy='120' r='70' fill='white' />
+
+            <circle cx='120' cy='120' r='43' fill='#E95420' />
+
+
+            <polyline points='120 120 240 120' stroke='#E95420' stroke-width='13' />
+
+            <polyline points='120 120 240 120' stroke='#E95420' stroke-width='13' transform='rotate(120 120 120)'/>
+
+            <polyline points='120 120 240 120' stroke='#E95420' stroke-width='13' transform='rotate(240 120 120)'/>
+
+            <circle cx='46' cy='120' r='17' stroke='#E95420' stroke-width='7' fill='white' />
+
+            <circle cx='46' cy='120' r='17' stroke='#E95420' stroke-width='7' fill='white' transform='rotate(240 120 120)'/>
+
+            <circle cx='46' cy='120' r='17' stroke='#E95420' stroke-width='7' fill='white' transform='rotate(120 120 120)'/>
+        </g>
+        <g id="chrome" transform="translate(480 0)">
+            <rect x='0' y='0' width="240" height="240" fill='crimson'/>
+
+            <circle cx='120' cy='120' r='80' fill='white' />
+
+            <circle cx='120' cy='120' r='34' stroke-width='5' stroke='crimson' fill='white' />
+
+            <polyline points='120 86 240 86' stroke='crimson' stroke-width='5' />
+
+            <polyline points='120 86 240 86' stroke='crimson' stroke-width='5' transform='rotate(120 120 120)'/>
+
+            <polyline points='120 86 240 86' stroke='crimson' stroke-width='5' transform='rotate(240 120 120)'/>
+        </g>
+        <g id="atom">
+            <rect x='0' y='0' width="240" height="240" fill='#204082'/>
+
+            <g transform='rotate(60 120 120) scale(0.9) translate(15 15)'>
+
+                <circle cx='120' cy='120' r='20' fill='white' />
+
+                <ellipse cx='120' cy='120' rx='100' ry='50' stroke='white' stroke-width='2' fill='none'/>
+                <circle cx='36' cy='146' r='10' fill='white' />
+
+                <g transform='rotate(120 120 120)'>
+                    <ellipse cx='120' cy='120' rx='100' ry='50' stroke='white' stroke-width='2' fill='none'/>
+                    <circle cx='36' cy='146' r='10' fill='white' />
+                </g>
+                <g transform='rotate(240 120 120)'>
+                    <ellipse cx='120' cy='120' rx='100' ry='50' stroke='white' stroke-width='2' fill='none'/>
+                    <circle cx='36' cy='146' r='10' fill='white' />
+                </g>
+            </g>
+        </g>
+        <use x="720" y="0" xlink:href="#atom" fill="red"/>
+    </g>
+    <script>
+        <![CDATA[
+
+            //Global Variable
+            var delta = 1;
+            var x = delta;
+            //Start the animation
+            slideshow();
+
+            //Continue the animation
+            function slideshow() {
+                x = x - delta;
+                document.getElementById('images').setAttribute('transform', 'translate(' + x + ' 0)');
+                if (x == -720) {
+                    x = 0;
+                }
+                if (-x % 240 == 0) {
+                    setTimeout(slideshow, 1000);
+                }
+                else {
+                    setTimeout(slideshow, 0);
+                }
+            }
+
+        ]]>
+    </script>
+
+</svg>

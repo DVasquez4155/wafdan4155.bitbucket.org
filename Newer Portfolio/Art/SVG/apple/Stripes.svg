@@ -1,0 +1,27 @@
+<svg height='400' width='600' xmlns="http://www.w3.org/2000/svg"
+  viewbox='0 0 600 400'
+  xmlns:xlink= "http://www.w3.org/1999/xlink">
+<!--Defs-->
+<defs>
+    <clipPath id='p1'>
+        <rect y='0' width='600' height='100'/>
+    </clipPath>
+    <clipPath id='p2'>
+        <rect y='100' width='600' height='100'/>
+    </clipPath>
+    <clipPath id='p3'>
+        <rect y='200' width='600' height='100'/>
+    </clipPath>
+    <clipPath id='p4'>
+        <rect y='300' width='600' height='100'/>
+    </clipPath>
+    <polygon points='10 10 590 200 300 390 z' id='triangle' />
+</defs>
+<!--Background-->
+    <rect width='600' height='400' fill='bisque'/>
+<!--Icon-->
+    <use xlink:href='#triangle' fill='red' clip-path='url(#p1)' />
+    <use xlink:href='#triangle' fill='green' clip-path='url(#p2)' />
+    <use xlink:href='#triangle' fill='blueviolet' clip-path='url(#p3)' />
+    <use xlink:href='#triangle' fill='blue' clip-path='url(#p4)' />
+</svg>

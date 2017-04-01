@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+Homeless Project - November 29, 2016
+       CEO: Jeremiah S.
+     Coder: Daniel V.
+    Artist: Danielle P.
+Researcher: Malik R.
+-->
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="icon" href="favicon.ico">
+        <title id='title'>Hungry, Hungry, Homeless</title>
+        <style>
+        </style>
+        <script src='contents/sidebar.js' id='newsScript'></script>
+        <script src='contents/headerandfooter.js'></script>
+    </head>
+    <body>
+        <div id='sidebar' class='side'>
+        </div>
+        
+        <div class='main'>
+            <header id='header'>
+            </header>
+        
+        
+            <div class='body'>
+                <div id='currentPageLink'>
+                    <span>
+                    <a href="index.html" class='acurrentPageLink'>Home</a>
+                     >> 
+                    <a href="index.html"  id='currentALink' class='acurrentPageLink'></a>
+                    </span>
+                </div>
+                <div class='halfbox'>
+                    <h3>Testimonials</h3>
+                </div>
+                <div class='halfbox'></div>
+                <div class='halfbox'>
+                    <img class='star' src='contents/star.svg'/>
+                    <img class='star' src='contents/star.svg'/>
+                    <img class='star' src='contents/star.svg'/>
+                    <br />
+                    <span>The events were simple enought to follow. Could use more terms to apply and methods to use to help the website though.</span>
+                    <br />
+                    <span>-Great review</span>
+                    <br /><br />
+                    <span>By John Doe</span>
+                </div>
+                <div class='halfbox'>
+                    <img class='star' src='contents/star.svg'/>
+                    <img class='star' src='contents/star.svg'/>
+                    <img class='star' src='contents/star.svg'/>
+                    <img class='star' src='contents/star.svg'/>
+                    <img class='star' src='contents/star.svg'/>
+                    <br />
+                    <span>I have contributed in over 300 hours of community service thanks to Hungry, Hungry, Homeless</span>
+                    <br />
+                    <span>-Awesome Help!</span>
+                    <br /><br />
+                    <span>By Anonymous User</span>
+                </div>
+                <div class='halfbox'>
+                    <img class='star' src='contents/star.svg'/>
+                    <img class='star' src='contents/star.svg'/>
+                    <img class='star' src='contents/star.svg'/>
+                    <img class='star' src='contents/star.svg'/>
+                    <br />
+                    <span>I found out helpful ways and paths for my Homeless Father. Thanks Hungry Hungry Homeless</span>
+                    <br />
+                    <span>-Yeah!</span>
+                    <br /><br />
+                    <span>By Anonymous User</span>
+                </div>
+                <div class='halfbox'>
+                    <img class='star' src='contents/star.svg'/>
+                    <img class='star' src='contents/star.svg'/>
+                    <img class='star' src='contents/star.svg'/>
+                    <img class='star' src='contents/star.svg'/>
+                    <img class='star' src='contents/star.svg'/>
+                    <br />
+
+                    <span>I donated a lot!</span>
+                    <br />
+                    <span>-Yes!!!</span>
+                    <br /><br />
+                    <span>By Anonymous User</span>
+                </div>
+                <p></p>
+                <br />
+                <br />
+                
+            </div>
+            <footer id='footer'>
+            </footer>
+        </div>
+    </body>
+    <script>
+        var hrefLocation = location.href.split('/');
+        for (var i=0; i<hrefLocation.length+1; i++) {
+            hrefLocation.shift();
+        }
+        hrefLocation = hrefLocation.pop().replace('.html', '');
+        hrefLocation = hrefLocation.split('')
+        hrefLocation[0] = hrefLocation[0].toUpperCase();
+        document.getElementById('currentALink').innerHTML = hrefLocation.join('').split('#')[0];
+        document.getElementById('currentALink').href = location.href;
+    </script>
+    <script>
+        var currentSite = 'home';
+        var currentsite = 'Testimonials';
+        var back = '';
+        sidebarStart();
+        headerAndFooterStart();
+    </script>
+</html>

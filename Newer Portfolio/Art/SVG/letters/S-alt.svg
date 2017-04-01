@@ -1,0 +1,13 @@
+<svg height='340' width='250' xmlns="http://www.w3.org/2000/svg"
+  viewbox='0 0 250 340'
+  xmlns:xlink= "http://www.w3.org/1999/xlink">
+<!--Icon-->
+<path d='M 215 52
+         C 182 30 170 30 150 30
+         C 115 30 70 60 71 100
+         C 70 135 122 160 140 166
+         C 189 180 215 220 215 250
+         C 215 280 172 321 140 321
+         C 100 321 87 312 61 291'
+      fill='none' stroke='white' stroke-width='5' stroke-linejoin='round' stroke-linecap='round' />
+</svg>

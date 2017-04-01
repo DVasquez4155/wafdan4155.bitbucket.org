@@ -1,0 +1,75 @@
+<!DOCTYPE html><!--Daniel Vasquez-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Daniel's Fortune Cookie Page</title>
+        <link rel="stylesheet" type="text/css" href="contents/style.css">
+        <style>
+            body {
+                text-align: center;
+                font-family: Candara;
+                background-color: cadetblue;
+            }
+            p {
+                font-size: 2em;
+                background-color: moccasin;
+            }
+            h1 {
+                font-size: 4em;
+                color: moccasin;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div id='header'></div>
+        <div id='sideBarList'></div>
+        <h1 id="title">Fortune Cookie</h1>
+        <p></p>
+        <div id="container">
+            <center>
+                <span id="BodyS">
+                    <!--Contents-->
+                    <p id='fortune'>Your fortune will appear here</p>
+                    <!--End of contents-->
+                </span>
+            </center>
+        </div>
+        <script src="contents/header.js"></script>
+        <script src="contents/sidebar.js"></script>
+        <script>
+            var fortunes = [  
+                "You'll never be the man your mother was!",
+                "The first version always gets thrown away.",
+                "The biggest mistake is not learning from all your other mistakes.",
+                "Did you know... That no-one ever reads these things?",
+                "A pound of salt will not sweeten a single cup of tea.",
+                "Air is water with holes in it",
+                "Communists do it without class.",
+                "Stop searching forever. /usr/games has been deleted.",
+                "Hackers do it with all sorts of characters.",
+                "You will receieve a fortune soon",
+                "The fortune you seek is in another cookie.",
+                "The princess is in another castle",
+                "The fortune is bigger than the inside",
+                "meh.",
+                "Learn China - Trumpa",
+                "The last fortune was a joke",
+                "The last video you saw was based on a true story",
+                "Another boring day tomorrow",
+                "Hail Hydra",
+                "Sadly the person next to you has stolen your fortune",
+                "Ignore the last cookie"
+            ];
+            function update() {
+                var which = Math.floor(Math.random()*fortunes.length);
+                var randomFortune = fortunes[which];
+                document.getElementById('fortune').textContent = randomFortune;
+            }
+            document.getElementById('fortune').onclick = update;
+            update();
+        </script>
+        
+        <script src='nav.js'></script>
+    </body>
+</html>

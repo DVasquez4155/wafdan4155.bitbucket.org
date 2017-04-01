@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!--
+Portfolio - December 14, 2016
+By Daniel Vasquez
+-->
+<html>
+    <head id='head'>
+        <title id='title'>Display</title>
+        <style>
+            body  {
+                background-color: #010f20;
+            }
+        </style>
+        <script src='../../../contents/headerandfooter.js'></script>
+        <script>
+            var currentSite = 'art';
+            var currentsite = 'Display';
+        </script>
+    </head>
+    <body>
+        <header id='header'></header>
+        <div id='links'></div>
+
+        <div class='body'>
+            <h1 id='h1Title' class='title dark'>Display</h1>
+            <div id="container">
+                
+                <div>
+                    <span>Width:</span>
+                    <input id="width" type="number" maxlength="7" value="768">
+                </div>
+                <div>
+                    <span>Height:</span>
+                    <input id="height" type="number" maxlength="7" value="1024">
+                </div>
+                <div>
+                    <span>Number of Icons in Rows:</span>
+                    <input id="acrossIcon" type="number" maxlength="7" value="3">
+                </div>
+                <div>
+                    <span>Number of Icons on Column:</span>
+                    <input id="column" type="number" maxlength="7" value="4">
+                </div>
+                <div>
+                    <span>Margin:</span>
+                    <input id="margin" type="number" maxlength="7" value="24">
+                </div>
+                <div>
+                    <span>Size:</span>
+                    <input id="size" type="number" maxlength="7" value="2">
+                </div>
+                <div>
+                    <span>Roundness:</span>
+                    <input id="rx" type="number" maxlength="7" value="42">
+                </div>
+                <div>
+                    <span>Background Color:</span>
+                    <input id="bColor" type="text" value="grey">
+                </div>
+                <div>
+                    <span>Square Color:</span>
+                    <input id="color" type="text" value="red">
+                </div>
+
+                <button id="calc" style="cursor:pointer">Calculate</button>
+
+                <div id="image"></div>
+                
+            </div>
+        </div>
+<script>
+            
+            //Click Event
+            function get(id) {
+                return document.getElementById(id);
+            }
+            //button
+            get("calc").onclick = calc;
+            
+            function calc() {
+                var height = document.getElementById("height").value;
+                var width = document.getElementById("width").value;
+                var acrossIcon = document.getElementById("acrossIcon").value;
+                var verticleIcon = document.getElementById("column").value;
+                var margin = document.getElementById("margin").value;
+                var size = document.getElementById("size").value;
+                var rx = document.getElementById("rx").value;
+                var bColor = document.getElementById("bColor").value;
+                var color = document.getElementById("color").value;
+                
+                var calc = (square * 2) + (margin * 2) + (margin / 2);
+                
+                var appSize1 = (((width) - (margin * ((parseFloat(acrossIcon) + 1)))) / acrossIcon);
+                var appSize2 = (((height) - (margin * ((parseFloat(verticleIcon) + 1)))) / verticleIcon);
+                var leftOverX = (appSize2 - appSize1) / 2;
+                
+                var tooMuchx = appSize1 + (margin * ((parseFloat(acrossIcon) + 1)));
+                var tooMuchy = appSize2 + (margin * ((parseFloat(verticleIcon) + 1)));
+                console.log(tooMuchx)
+                console.log(appSize1)
+                console.log(tooMuchy)
+                if (height < tooMuchx) {
+                    
+                }
+                
+                var square = (appSize1 + appSize2) / 2;
+                var square = square - Math.abs(leftOverX)
+                
+                var width = width / size;
+                var height = height / size;
+                var square = square / size;
+                var margin = margin / size;
+                var rx = rx / size
+                
+                var iconSize = verticleIcon * acrossIcon;
+                var i = 1;
+                var a = 0;
+                var nx = 1;
+                var ny = 1;
+                var squares = '';
+                var paddingX = '';
+                var paddingY = '';
+                var screen = " ";
+                var final = [];
+                
+                for (y=1; y<=verticleIcon; y++) {
+                    
+                    paddingY = ((margin*y) + (square * (y - 1))) + Math.abs(leftOverX);
+                    
+                    for (x=1; x<=acrossIcon; x++) {
+                        
+                        paddingX = ((margin*x) + (square * (x - 1))) + Math.abs(leftOverX);
+                        
+                        var rect = "<rect x='" + paddingX + "' y='" + paddingY + "' width='" + square + "' height='" + square + "' fill='" + color + "'  rx='" + rx + "' ry='" + rx+ "' />";
+                        
+                        final[i] = rect;
+                        i++
+                        var screen = ("<svg width='" + width + "' height='" + height + "'" + "xmlns='http://www.w3.org/2000/svg'" + "viewbox='0 0 " + width +  " " + height + "'" + "xmlns:xlink= 'http://www.w3.org/1999/xlink'>" + "<rect x='0' y='0' height='" + height + "' width='" + width + "' fill='" + bColor + "' />" + final + "</svg>"     );
+                            }
+
+                }
+                document.getElementById("image").innerHTML = screen;
+            }
+            
+            
+        </script>
+        <footer id='footer'></footer>
+    </body>
+
+</html>

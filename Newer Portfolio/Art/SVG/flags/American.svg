@@ -1,0 +1,43 @@
+<svg width='7600' height='4000' viewbox='0 0 15200 8000'
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink= "http://www.w3.org/1999/xlink">
+
+    <!--Shapes-->
+    <g  transform="scale(4)">
+    <rect x="0" y="0" width="1900" height="76.9230769231" fill="#b22234"/>
+    <rect x="0" y="76.9230769231" width="1900" height="76.9230769231" fill="white"/>
+    <rect x="0" y="153.846153846" width="1900" height="76.9230769231" fill="#b22234"/>
+    <rect x="0" y="230.769230769" width="1900" height="76.9230769231" fill="white"/>
+    <rect x="0" y="307.692307692" width="1900" height="76.9230769231" fill="#b22234"/>
+    <rect x="0" y="384.615384615" width="1900" height="76.9230769231" fill="white"/>
+    <rect x="0" y="461.538461539" width="1900" height="76.9230769231" fill="#b22234"/>
+    <rect x="0" y="538.461538462" width="1900" height="76.9230769231" fill="white"/>
+    <rect x="0" y="615.384615385" width="1900" height="76.9230769231" fill="#b22234"/>
+    <rect x="0" y="692.307692308" width="1900" height="76.9230769231" fill="white"/>
+    <rect x="0" y="769.230769231" width="1900" height="76.9230769231" fill="#b22234"/>
+    <rect x="0" y="846.153846154" width="1900" height="76.9230769231" fill="white"/>
+    <rect x="0" y="923.076923077" width="1900" height="76.9230769231" fill="#b22234"/>
+    <rect x="0" y="0" width="760" height="538.461538462" fill="#3c3b6e"/>
+    </g>
+
+<g fill="#fff">
+<g id="s18">
+<g id="s9">
+<g id="s5">
+<g id="s4">
+<path id="s" d="M247,90 317.534230,307.082039 132.873218,172.917961H361.126782L176.465770,307.082039z"/>
+<use xlink:href="#s" y="420"/>
+<use xlink:href="#s" y="840"/>
+<use xlink:href="#s" y="1260"/>
+</g>
+<use xlink:href="#s" y="1680"/>
+</g>
+<use xlink:href="#s4" x="247" y="210"/>
+</g>
+<use xlink:href="#s9" x="494"/>
+</g>
+<use xlink:href="#s18" x="988"/>
+<use xlink:href="#s9" x="1976"/>
+<use xlink:href="#s5" x="2470"/>
+</g>
+</svg>

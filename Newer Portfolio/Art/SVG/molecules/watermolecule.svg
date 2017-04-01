@@ -1,0 +1,43 @@
+<!--svg-->
+<svg height='600' width='400' xmlns="http://www.w3.org/2000/svg"
+  viewbox='0 0 400 600'
+  xmlns:xlink= "http://www.w3.org/1999/xlink">
+    <!--H-->
+    <defs>
+        <radialGradient id="H" cx="60%" cy="30%" r="70%" fx="35%" fy="35%">
+            <stop offset="0%" style="stop-color:rgb(220,220,220);
+     stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgb(290,0,0);stop-opacity:1" />
+        </radialGradient>
+    </defs>
+    <!--O-->
+    <defs>
+        <radialGradient id="O" cx="60%" cy="30%" r="70%" fx="35%" fy="35%">
+            <stop offset="0%" style="stop-color:rgb(220,220,220);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+        </radialGradient>
+    </defs>
+    <!--line-->
+    <defs>
+        <linearGradient id="line" x1="40%" y1="60%" x2="60%" y2="40%">
+            <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    <defs>
+        <linearGradient id="line1" x1="40%" y1="40%" x2="60%" y2="60%">
+            <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    <!---->
+    <rect x='0' y='0' width='400' height='600' fill='#333'/>
+    <line x1="200" y1="200" x2="300" y2="350" style="stroke:url(#line);stroke-width:30" />
+    <line x1="200" y1="200" x2="100" y2="350" style="stroke:url(#line1);stroke-width:30" />
+    <circle cx='200' cy='200' r='60' fill='url(#H)' />
+    <circle cx='300' cy='350' r='60' fill='url(#O)' />
+    <circle cx='100' cy='350' r='60' fill='url(#O)' />
+    <text x='185' y='210' fill='black' font-size='40px'>O</text>
+    <text x='300' y='360' fill='black' font-size='40px'>H</text>
+    <text x='70' y='360' fill='black' font-size='40px'>H</text>
+</svg>

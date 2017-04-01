@@ -1,0 +1,28 @@
+<svg width='200' height='200' viewbox='0 0 200 200'
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink= "http://www.w3.org/1999/xlink">
+
+    <!-- the clipping paths and masks will go here -->
+
+    <defs>
+    </defs>
+
+    <!-- the shapes and stuff will go here -->
+
+    <rect x='100' y='50' width="20" height="100" fill="gold" stroke="none" />
+    <g transform="rotate(90 100 50)">
+    <rect x='100' y='50' width="20" height="15" fill="gold" stroke="none" />
+    </g>
+    
+    <g transform="rotate(-90 150 65)">
+    <rect x='150' y='65' width="15" height="20" fill="gold" stroke="none" />
+    </g>
+    
+    <g transform="rotate(180 115 30)">
+    <rect x='115' y='30' width="15" height="20" fill="gold" stroke="none" />
+    </g>
+    
+    <g transform="rotate(90 60 50)">
+    <rect x='60' y='50' width="15" height="20" fill="gold" stroke="none" />
+    </g>
+</svg>

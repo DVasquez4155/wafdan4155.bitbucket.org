@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!--
+Homeless Project - November 29, 2016
+       CEO: Jeremiah S.
+     Coder: Daniel V.
+    Artist: Danielle P.
+Researcher: Daniel R.
+-->
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="icon" href="favicon.ico">
+        <title id='title'>Hungry, Hungry, Homeless</title>
+        <style>
+        </style>
+        <script src='contents/sidebar.js' id='newsScript'></script>
+        <script src='contents/headerandfooter.js'></script>
+    </head>
+    <body>
+        <div id='sidebar' class='side'>
+        </div>
+        
+        <div class='main'>
+            <header id='header'>
+            </header>
+        
+        
+            <div class='body'>
+               <div id='currentPageLink'>
+                    <span>
+                    <a href="index.html" class='acurrentPageLink'>Home</a>
+                     >> 
+                    <a href="index.html"  id='currentALink' class='acurrentPageLink'></a>
+                    </span>
+                </div>
+                <center>
+                    
+                    
+                    
+                    <div class='box' id='main'>
+                        <div class='auto'>
+                            <span>Badges:</span>
+                            <br />
+                            <img src='HomelessIcons/badge1.svg' class='badgeNA' id='one' title="Not Achieved"/>
+                            <img src='HomelessIcons/badge2.svg' class='badgeNA' title="Not achieved" id='calendar'/>
+                        </div>
+                        
+                        <div class='autoL'>
+                            <img class='defaultImageProfile' src='HomelessIcons/default.svg'/>
+                        </div>
+                        
+                        <div class='auto'>
+                            <span>Badges:</span>
+                            <br />
+                            <img src='HomelessIcons/calendar.svg' class='badge' id='calendar' title="Went to an Event"/>
+                            <img src='HomelessIcons/card.svg' class='badge' title="Donated"/>
+                            <img src='HomelessIcons/fb.svg' class='badgeNA' title="Not achieved"/>
+                            <img src='HomelessIcons/twit.svg' class='badgeNA' title="Not achieved"/>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <p></p>
+                        <p></p>
+                        <br />
+                        
+                    </div>
+                    <div class='box'>
+                        <div class="autoDiv">
+                            <table>
+                                <tr>
+                                    <th>Name: </th>
+                                    <td id='name'>&nbsp &nbsp &nbsp Alex Smith</td>
+                                </tr>
+                                <tr>
+                                    <th>Birthdate: </th>
+                                    <td id='birthdate'>&nbsp &nbsp &nbsp 03/05/1994</td>
+                                </tr>
+                            
+                            </table>
+                        </div>
+                    
+                    </div>
+                    <div class='box'>
+                        <h3>Upcoming Events</h3>
+                        <div class='boxSpecial'>
+                            <span>Annual Toy Giveaway - South SF</span>
+                            <br />
+                            <span>December 22, 2016 (8:00 AM-10:00 AM)</span>
+                            <br />
+                            <span>1381 South First St. San José, CA 95110</span>
+                            <br />
+                            <span>In partnership with the SSF Police Department, we will provide toys to low income families ....</span>
+                            <a class='dark right' href="events/event.html#1"> Read more..</a>
+                        
+                        </div>
+                    </div>
+                    <div class='box'>
+                        <h3>Recommended Events</h3>
+                        
+                        <div class='boxSpecial'>
+                            <span>Second Harvest Food Bank of Santa Clara and San Mateo Counties</span>
+                            <br />
+                            <span>Every Tuesday and Friday </span>
+                            <br />
+                            <span>Central San Jose Second Harvest Food Bank </span>
+                            <br />
+                            <span>Some of our most dedicated volunteers help through distributing food at hundreds of ..... <a class='dark right' href="events/event.html#2">Read more..</a></span>
+                        </div>
+                        <div class='boxSpecial'>
+                            <span>Second Harvest Food Bank of Santa Clara and San Mateo Counties</span>
+                            <br />
+                            <span>Every Wednesday and Friday</span>
+                            <br />
+                            <span>East San Jose Second Harvest Food Bank</span>
+                            <br />
+                            <span>Some of our most dedicated volunteers help through distributing food at hundreds of ..... <a class='dark right' href="events/event.html#3">Read more..</a></span>
+                            
+                        
+                        </div>
+                        <div class='boxSpecial'>
+                            <span>Sacred Hearts Silicon Valley</span>
+                            <br />
+                            <span>Everyday</span>
+                            <br />
+                            <span>1381 South First St. San José, CA 95110</span>
+                            <br />
+                            <span>Sacred Heart Community Service is dedicated to bringing our community together to ..... <a class='dark right' href="events/event.html#4">Read more..</a></span>
+                            
+                        
+                        </div>
+                    </div>
+                    <div class='box'>
+                        <h3>Tips</h3>
+                        <div class='boxSpecial center'>
+                            <div class="autoDiv">
+                                
+                                <li>Wear something easy to move in</li>
+                                <li>Wear something you can keep dirty</li>
+                                <li>Dress for the weather</li>
+                                <li>Carpool to the event with friends and family</li>
+                                <li>Leave your bags in the car</li>
+                                <li>Bring as many people as you can</li>
+                                
+                            </div>
+                        
+                        </div>
+                    </div>
+                </center>
+                
+                        
+                        
+                        
+                <p></p>
+                <p></p>
+                <br />
+            </div>
+
+            <footer id='footer'>
+            </footer>
+        </div>
+    </body>
+    <script>
+        var hrefLocation = location.href.split('/');
+        for (var i=0; i<hrefLocation.length+1; i++) {
+            hrefLocation.shift();
+        }
+        hrefLocation = hrefLocation.pop().replace('.html', '');
+        hrefLocation = 'My Profile';
+        hrefLocation = hrefLocation.split('')
+        hrefLocation[0] = hrefLocation[0].toUpperCase();
+        document.getElementById('currentALink').innerHTML = hrefLocation.join('').split('#')[0];
+        document.getElementById('currentALink').href = location.href;
+    </script>
+    <script>
+        var currentSite = 'myprofile';
+        var currentsite = 'My Profile';
+        var back = '';
+        sidebarStart();
+        headerAndFooterStart();
+    </script>
+
+</html>

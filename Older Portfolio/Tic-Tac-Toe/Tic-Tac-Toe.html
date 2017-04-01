@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--Daniel Vasquez 9/30/16-->
+<meta charset="utf-8" />
+<link href="https://fonts.googleapis.com/css?family=Keania+One" rel="stylesheet">
+    
+    <style type="text/css">
+        body {
+            text-align: center;
+            font-family: 'Keania One', cursive;
+            color: lightgrey;
+            font-size: 3em;
+            user-drag: none; 
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+        img {
+            background-color: aquamarine;
+            padding: 3px;
+            user-drag: none; 
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            border-width: 2px;
+            border-color: aquamarine;
+            border-style: solid;
+            cursor: pointer;
+        }
+        img:hover {
+            background-color: mediumvioletred;
+        }
+        img:active {
+            background-color: purple;
+        }
+        #end {
+            width: 550px;
+        }
+        #newgame {
+            color:black;
+            padding: 3px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 4px;
+            background: linear-gradient(#eee,#ccc);
+            width: 250px;
+            border: 1px solid black;
+        }
+    
+    </style>
+
+</head>
+    <body>
+        <center>
+            <h1 id='title'>Tic Tac Toe</h1>
+            <span style="color: darkturquoise">X:</span>
+            <span id='scoreX' style="color: darkturquoise">0</span>
+            <button id='resetscore'>Reset Score</button>
+            <span style="color: lightcoral">O:</span>
+            <span id='scoreO' style="color: lightcoral">0</span>
+            <p></p>
+            <div> 
+                <img id="img1" unselectable="on" src="blank.svg" />
+                <img id="img2" unselectable="on" src="blank.svg" />
+                <img id="img3" unselectable="on" src="blank.svg" /><br />
+                <img id="img4" unselectable="on" src="blank.svg" />
+                <img id="img5" unselectable="on" src="blank.svg" />
+                <img id="img6" unselectable="on" src="blank.svg" /><br />
+                <img id="img7" unselectable="on" src="blank.svg" />
+                <img id="img8" unselectable="on" src="blank.svg" />
+                <img id="img9" unselectable="on" src="blank.svg" /><br />
+            </div>
+            <p></p>
+            <center><div id='newgame'>New Game</div></center>
+            <p></p>
+
+            <p id="end"></p>
+            <p id="hidden"></p>
+        </center>
+        
+        <script>
+// Variables
+var images = document.getElementsByTagName('img');
+var newgame = document.getElementById('newgame');
+var resetscore = document.getElementById('resetscore');
+var currentPlayer = 'x.svg';
+var somebodyWon = false;
+var x = 0;
+var scoreX = 0;
+var scoreO = 0;
+var hidden = 0;
+var hiddenMessage = "Achievement get: Clicked the New Game button 50 times without playing. Are you that bored?"
+var tie = false;
+var colorWhoWon = 0;
+var wonTwice = 0
+document.body.onkeypress = function(e) {
+    if (e.keyCode == 13) {
+        document.getElementById('newgame').click();
+    }
+    else if (e.keyCode == 32) {
+        document.getElementById('resetscore').click();
+        
+    }
+    else if (e.location == 3) {
+        if (e.code == "Numpad1") {
+            document.getElementById('img7').click();
+        }
+        else if (e.code == "Numpad2") {
+            document.getElementById('img8').click();
+        }
+        else if (e.code == "Numpad3") {
+            document.getElementById('img9').click();
+        }
+        else if (e.code == "Numpad4") {
+            document.getElementById('img4').click(); 
+        }
+        else if (e.code == "Numpad5") {
+            document.getElementById('img5').click(); 
+        }
+        else if (e.code == "Numpad6") {
+            document.getElementById('img6').click(); 
+        }
+        else if (e.code == "Numpad7") {
+            document.getElementById('img1').click(); 
+        }
+        else if (e.code == "Numpad8") {
+            document.getElementById('img2').click(); 
+        }
+        else if (e.code == "Numpad9") {
+            document.getElementById('img3').click(); 
+        }
+    }
+    else {
+        document.getElementById('img' + e.key).click();
+    }
+};
+
+for (var i=0; i < images.length; i++) {
+    images[i].onclick = clicked;
+}
+newgame.onclick = reset;
+resetscore.onclick = resetScore;
+
+// Functions
+function clicked(e) {
+
+
+    x = x + 1;
+    var winner = (currentPlayer.replace('.svg' , ""))
+    
+    hidden = 0;
+    document.getElementById("hidden").innerHTML = " ";
+    if (e.target.src.indexOf('blank.svg') < 0) {
+        return;
+    }
+    else if (e.target.src.indexOf('blank.svg') < 0) {
+        return;
+    }
+    
+    if (somebodyWon) {
+        return;
+    }
+    e.target.src = currentPlayer;
+    console.log(e.target.id)
+    if (somebodyWon == false) {
+        
+        e.target.style.backgroundColor = "bisque";
+        e.target.style.cursor = "not-allowed";
+    }
+    checkWin(currentPlayer);
+    if (currentPlayer === "x.svg") {
+        currentPlayer = "o.svg";
+    } else {
+        currentPlayer = "x.svg";
+    }
+}
+
+function checkWin (player) {
+        //row
+        checkSeries(0, 1, player);
+        checkSeries(3, 1, player);
+        checkSeries(6, 1, player);
+        //column
+        checkSeries(0, 3, player);
+        checkSeries(1, 3, player);
+        checkSeries(2, 3, player);
+        //diagnals
+        checkSeries(0, 4, player);
+        checkSeries(2, 2, player);
+
+}
+function checkWin2 (player) {
+        //diagnals
+        checkSeries(2, 2, player);
+        checkSeries(0, 4, player);
+        //column
+        checkSeries(2, 3, player);
+        checkSeries(1, 3, player);
+        checkSeries(0, 3, player);
+        //row
+        checkSeries(6, 1, player);
+        checkSeries(3, 1, player);
+        checkSeries(0, 1, player);
+}
+
+function checkSeries (start, bump, player) {
+    if (images[start].src.indexOf(player) >= 0 &&
+        images[start + bump].src.indexOf(player) >= 0 &&
+        images[start + 2 * bump].src.indexOf(player) >= 0) {
+        somebodyWon = true;
+        message = ("Player number " + player.replace('.svg' , "") + " won!");
+        document.getElementById("end").innerHTML = message;
+        x = 0
+        wonTwice = wonTwice + 1
+        if (wonTwice == 2) {
+            message = ("Player number " + player.replace('.svg' , "") + " won twice! Wow! Given 2 points");
+            document.getElementById("end").innerHTML = message;
+        }
+        //Detector
+        var winner = (player.replace('.svg' , ""))
+        if (winner == "x") {
+            scoreX = (scoreX + 1);
+            document.getElementById("scoreX").innerHTML = scoreX;
+            bColorWhoWon = "rgba(0,206,209,0.4)";
+            colorWhoWon = "rgb(0,206,209)";
+            dColorWhoWon = "blue";
+            currentColor = "darkturquoise"
+            
+        } if (winner == "o") {
+            scoreO = (scoreO + 1);
+            document.getElementById("scoreO").innerHTML = scoreO;
+            bColorWhoWon = "rgba(240,128,128,0.4)";
+            colorWhoWon = "rgb(240,128,128)";
+            dColorWhoWon = "red";
+            currentColor = "lightcoral"
+        }
+        
+        for (var i=0; i < images.length; i++) {
+            var img = ('img' + (i + 1));
+            document.getElementById(img).style.cursor = "not-allowed";
+        }
+        
+        var images1 = start;
+        var images2 = start + bump;
+        var images3 = start + 2 * bump;
+        var winning1 = images1 + 1;
+        var winning2 = images2 + 1;
+        var winning3 = images3 + 1;
+        images[images1].style.backgroundColor = winner;
+        images[images2].style.backgroundColor = winner;
+        images[images3].style.backgroundColor = winner;
+        
+        document.getElementById("img" + winning1).style.backgroundColor = dColorWhoWon;
+        document.getElementById("img" + winning2).style.backgroundColor = dColorWhoWon;
+        document.getElementById("img" + winning3).style.backgroundColor = dColorWhoWon;
+        
+        document.getElementById("end").style.background = bColorWhoWon;
+        document.getElementById("end").style.color = colorWhoWon;
+        document.getElementById("title").style.color = colorWhoWon;
+        document.getElementById("newgame").style.color = colorWhoWon;
+        
+    } else if (x == 9) {
+            message = ("It's a tie!")
+            bColorWhoWon = "rgba(211,211,211,0.9)";
+            colorWhoWon = "rgb(211,211,211)";
+            document.getElementById("end").style.background = bColorWhoWon;
+            document.getElementById("title").style.color = colorWhoWon;
+            document.getElementById("end").style.color = "black";
+            document.getElementById("end").innerHTML = message;
+        }
+}
+
+function resetScore() {
+    scoreO = 0;
+    scoreX = 0;
+    document.getElementById("scoreX").innerHTML = scoreX;
+    document.getElementById("scoreO").innerHTML = scoreO;
+}
+
+function reset() {
+    for (var i=0; i < images.length; i++) {
+            var img = ('img' + (i + 1));
+            document.getElementById(img).style.cursor = "";
+    }
+    
+    x = 0
+    colorWhoWon = "rgb(211,211,211)";
+    hidden = hidden + 1
+    somebodyWon = false;
+    message = (" ");
+    wonTwice = 0
+    document.getElementById("title").style.color = colorWhoWon;
+    document.getElementById("newgame").style.color = "black";
+    document.getElementById("end").innerHTML = message;
+    if (hidden == 50) {
+        document.getElementById("hidden").innerHTML = hiddenMessage;
+        document.getElementById("hidden").style.background = "rgba(211,211,211,0.4)";
+    }
+    for (var i=0; i < images.length; i++) {
+        var img = ('img' + (i + 1));
+        images[i].src = 'blank.svg';
+        document.getElementById(img).style.background = "";
+        document.getElementById(img).style.borderColor = "";
+  }
+}
+        </script>
+        <script src='../nav.js'></script>
+        
+    </body>
+</html>

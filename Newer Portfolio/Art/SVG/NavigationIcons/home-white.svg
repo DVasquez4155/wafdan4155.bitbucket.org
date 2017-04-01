@@ -1,0 +1,15 @@
+<svg height='240' width='240' xmlns="http://www.w3.org/2000/svg"
+  viewbox='0 0 240 240'
+  xmlns:xlink= "http://www.w3.org/1999/xlink">
+<!--Icon-->
+<g transform='scale(60)'>
+<polygon points='0 2, 2 0, 4 2 z' fill='white' />
+<rect y='2' height='2' width='2' fill='white' />
+<rect y='2' x='3' height='2' width='1' fill='white' />
+</g>
+
+
+
+
+<!---->
+</svg>

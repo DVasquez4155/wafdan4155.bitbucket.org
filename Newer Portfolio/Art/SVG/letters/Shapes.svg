@@ -1,0 +1,25 @@
+<svg height='240' width='240' xmlns="http://www.w3.org/2000/svg"
+  viewbox='0 0 600 400'
+  xmlns:xlink= "http://www.w3.org/1999/xlink">
+<!--Icon-->
+<path d='M 240 0
+         C 0 0
+         240 240
+         0 240' stroke='red' stroke-width='8' fill='none'/>
+<path d='M 240 0
+         C -300 0
+         540 240
+         0 240' stroke='green' stroke-width='8' fill='none'/>
+<path d='M 240 0
+         C 0 0
+         0 240
+         240 240' stroke='blue' stroke-width='8' fill='none'/>
+<circle cx='120' cy='120' r='120' stroke='brown' stroke-width='8' fill='none' />
+<path d='M 120 0
+         C 187 0 240 53 240 120
+         C 240 187 187 240 120 240
+         C 0 240 0 240 0 120
+         C 0 0 0 0 120 0'
+      stroke='purple' stroke-width='8' fill='none'/>
+
+</svg>

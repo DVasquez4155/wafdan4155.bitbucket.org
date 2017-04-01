@@ -1,0 +1,208 @@
+<!DOCTYPE html><!--Daniel Vasquez 11/16/16-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Daniel's Flag Generator Page</title>
+        <link rel="stylesheet" type="text/css" href="contents/style.css">
+        <style>
+        </style>
+    </head>
+    <body>
+        <div id='header'></div>
+        <div id='sideBarList'></div>
+        <center id="title">Svg Flag Generator</center>
+        <p></p>
+        <div id="container">
+            <center>
+                <span id="BodyS">
+                    <!--Contents-->
+                    <div id="flag">
+                        <span>Add star: </span>
+                        <input type="checkbox" id="special" />
+                        <span id="extraInput"></span><br>
+                        <select id='choice'>
+                            <option value='vertical'>Vertical Flag</option>
+                            <option value='horizontal'>Horizontal Flag</option>
+                            <option value='lHorizontal'>Left Hand Side Horizontal Flag</option>
+                            <option value='rHorizontal'>Right Hand Side Horizontal Flag</option>
+                        </select><br>
+                        <span id="colorOptions">
+                            <input id="colorInput01" placeholder="Verticle Color #1" type="text">
+                            <input id="colorInput02" placeholder="Verticle Color #2" type="text">
+                            <input id="colorInput03" placeholder="Verticle Color #3" type="text">
+                        </span>
+                        <button id="generate">Generate!</button>
+                        <br>
+                        <svg width='600' height='400' viewbox='0 0 600 400'
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink= "http://www.w3.org/1999/xlink">
+
+                            <!--Shapes-->
+
+                            <rect x='0' y='0' width="600" height="200" fill="cyan" id="color11"/>
+                            <rect x='0' y='200' width="600" height="200" fill="coral" id="color12"/>
+                            <rect x='0' y='0' width="200" height="133" fill="red" id="color01"/>
+                            <rect x='0' y='133' width='200' height='133' fill='white' id="color02" />
+                            <rect x='0' y='266' width="200" height="133" fill="orange" id="color03"/>
+                            <rect x='200' y='0' width="200" height="133" fill="blue" id="color04"/>
+                            <rect x='200' y='133' width="200" height="133" fill="purple" id="color05"/>
+                            <rect x='200' y='266' width="200" height="133" fill="green" id="color06"/>
+                            <rect x='400' y='0' width="200" height="133" fill="yellow" id="color07"/>
+                            <rect x='400' y='133' width="200" height="133" fill="cyan" id="color08"/>
+                            <rect x='400' y='266' width="200" height="133" fill="coral" id="color09"/>
+                            <circle cx="300" cy="200" r="20" fill="none" id="color10"/>
+
+                        </svg>
+                        
+                    </div>
+                    <!--End of contents-->
+                </span>
+            </center>
+        </div>
+        <script src="contents/header.js"></script>
+        <script src="contents/sidebar.js"></script>
+        <script>
+            //Drag and Drop
+            //Move star around
+            //Size Of Circle
+            document.getElementById('special').onclick = function (e) {
+                if (document.getElementById("special").checked == false) {
+                    document.getElementById('extraInput').innerHTML = '';
+                    document.getElementById('color10').setAttribute ('fill', "none");
+                    
+                }
+                else if (document.getElementById("special").checked) {
+                    document.getElementById('extraInput').innerHTML = '<input id="colorInput10" placeholder="Special Color" type="text"/> <input id="colorInput10Radius" placeholder="Special Size" type="text"/> <select id="specialChoice"> <option value="upLeft">Up Left</option> <option value="upMiddle">Up Middle</option> <option value="upRight">Up Right</option> <option value="middleLeft">Middle Left</option> <option value="middleMiddle">Middle Middle</option> <option value="middleRight">Middle Right</option> <option value="downLeft">Down Left</option> <option value="downMiddle">Down Middle</option> <option value="downRight">Down Right</option> </select>';
+                }
+            }
+            
+            document.getElementById('choice').onchange = function (e) {
+                document.getElementById('colorOptions').innerHTML = ""
+                if (document.getElementById('choice').value == 'vertical') {
+                        console.log("test")
+                    for (var i = 1; i<4; i++) {
+                        document.getElementById('colorOptions').innerHTML += '<input id="colorInput0'+ i +'" placeholder="Verticle Color #' + i + '" type="text"/>'
+                    }
+                }
+                else if (document.getElementById('choice').value == 'horizontal') {
+                    for (var i = 1; i<4; i++) {
+                        document.getElementById('colorOptions').innerHTML += '<input id="colorInput0'+ i +'" placeholder="Horizontal Color #' + i + '" type="text"/>'
+                    }
+                }
+                else if (document.getElementById('choice').value == 'lHorizontal') {
+                    for (var i = 1; i<4; i++) {
+                        document.getElementById('colorOptions').innerHTML += '<input id="colorInput0'+ i +'" placeholder="Left Side Color #' + i + '" type="text"/>'
+                    }
+                }
+                else if (document.getElementById('choice').value == 'rHorizontal') {
+                    for (var i = 1; i<4; i++) {
+                        document.getElementById('colorOptions').innerHTML += '<input id="colorInput0'+ i +'" placeholder="Right Side Color #' + i + '" type="text"/>'
+                    }
+                }
+            }
+            
+            document.getElementById('generate').onclick = function (e) {
+                if (document.getElementById("special").checked) {
+                    document.getElementById('color10').setAttribute ('fill', document.getElementById('colorInput10').value);
+                    document.getElementById('color10').setAttribute ('r', parseFloat(document.getElementById('colorInput10Radius').value));
+                    if (document.getElementById('colorInput10Radius').value == "") {
+                        document.getElementById('color10').setAttribute ('r', '20');
+                    }
+                    if (document.getElementById('specialChoice').value == "upLeft") {
+                        document.getElementById('color10').setAttribute ('cx', '100');
+                        document.getElementById('color10').setAttribute ('cy', '66.5');
+                    }
+                    else if (document.getElementById('specialChoice').value == "upMiddle") {
+                        document.getElementById('color10').setAttribute ('cx', '300');
+                        document.getElementById('color10').setAttribute ('cy', '66.5');
+                    }
+                    else if (document.getElementById('specialChoice').value == "upRight") {
+                        document.getElementById('color10').setAttribute ('cx', '500');
+                        document.getElementById('color10').setAttribute ('cy', '66.5');
+                    }
+                    else if (document.getElementById('specialChoice').value == "middleLeft") {
+                        document.getElementById('color10').setAttribute ('cx', '100');
+                        document.getElementById('color10').setAttribute ('cy', '200');
+                    }
+                    else if (document.getElementById('specialChoice').value == "middleMiddle") {
+                        document.getElementById('color10').setAttribute ('cx', '300');
+                        document.getElementById('color10').setAttribute ('cy', '200');
+                    }
+                    else if (document.getElementById('specialChoice').value == "middleRight") {
+                        document.getElementById('color10').setAttribute ('cx', '500');
+                        document.getElementById('color10').setAttribute ('cy', '200');
+                    }
+                    else if (document.getElementById('specialChoice').value == "downLeft") {
+                        document.getElementById('color10').setAttribute ('cx', '100');
+                        document.getElementById('color10').setAttribute ('cy', '333.5');
+                    }
+                    else if (document.getElementById('specialChoice').value == "downMiddle") {
+                        document.getElementById('color10').setAttribute ('cx', '300');
+                        document.getElementById('color10').setAttribute ('cy', '333.5');
+                    }
+                    else if (document.getElementById('specialChoice').value == "downRight") {
+                        document.getElementById('color10').setAttribute ('cx', '500');
+                        document.getElementById('color10').setAttribute ('cy', '333.5');
+                    }
+                }
+                if (document.getElementById('choice').value == 'vertical') {
+                    document.getElementById('color01').setAttribute ('fill', document.getElementById('colorInput01').value);
+                    document.getElementById('color02').setAttribute ('fill', document.getElementById('colorInput01').value);
+                    document.getElementById('color03').setAttribute ('fill', document.getElementById('colorInput01').value);
+                    document.getElementById('color04').setAttribute ('fill', document.getElementById('colorInput02').value);
+                    document.getElementById('color05').setAttribute ('fill', document.getElementById('colorInput02').value);
+                    document.getElementById('color06').setAttribute ('fill', document.getElementById('colorInput02').value);
+                    document.getElementById('color07').setAttribute ('fill', document.getElementById('colorInput03').value);
+                    document.getElementById('color08').setAttribute ('fill', document.getElementById('colorInput03').value);
+                    document.getElementById('color09').setAttribute ('fill', document.getElementById('colorInput03').value);
+                    document.getElementById('color11').setAttribute ('fill', "none");
+                    document.getElementById('color12').setAttribute ('fill', "none");
+                }
+                else if (document.getElementById('choice').value == 'horizontal') {
+                    document.getElementById('color01').setAttribute ('fill', document.getElementById('colorInput01').value);
+                    document.getElementById('color02').setAttribute ('fill', document.getElementById('colorInput02').value);
+                    document.getElementById('color03').setAttribute ('fill', document.getElementById('colorInput03').value);
+                    document.getElementById('color04').setAttribute ('fill', document.getElementById('colorInput01').value);
+                    document.getElementById('color05').setAttribute ('fill', document.getElementById('colorInput02').value);
+                    document.getElementById('color06').setAttribute ('fill', document.getElementById('colorInput03').value);
+                    document.getElementById('color07').setAttribute ('fill', document.getElementById('colorInput01').value);
+                    document.getElementById('color08').setAttribute ('fill', document.getElementById('colorInput02').value);
+                    document.getElementById('color09').setAttribute ('fill', document.getElementById('colorInput03').value);
+                    document.getElementById('color11').setAttribute ('fill', "none");
+                    document.getElementById('color12').setAttribute ('fill', "none");
+                }
+                else if (document.getElementById('choice').value == 'lHorizontal') {
+                    document.getElementById('color01').setAttribute ('fill', document.getElementById('colorInput01').value);
+                    document.getElementById('color02').setAttribute ('fill', document.getElementById('colorInput01').value);
+                    document.getElementById('color03').setAttribute ('fill', document.getElementById('colorInput01').value);
+                    document.getElementById('color04').setAttribute ('fill', "none");
+                    document.getElementById('color05').setAttribute ('fill', "none");
+                    document.getElementById('color06').setAttribute ('fill', "none");
+                    document.getElementById('color07').setAttribute ('fill', "none");
+                    document.getElementById('color08').setAttribute ('fill', "none");
+                    document.getElementById('color09').setAttribute ('fill', "none");
+                    document.getElementById('color11').setAttribute ('fill', document.getElementById('colorInput02').value);
+                    document.getElementById('color12').setAttribute ('fill', document.getElementById('colorInput03').value);
+                    
+                }
+                else if (document.getElementById('choice').value == 'rHorizontal') {
+                    document.getElementById('color11').setAttribute ('fill', document.getElementById('colorInput01').value);
+                    document.getElementById('color12').setAttribute ('fill', document.getElementById('colorInput02').value);
+                    document.getElementById('color01').setAttribute ('fill', "none");
+                    document.getElementById('color02').setAttribute ('fill', "none");
+                    document.getElementById('color03').setAttribute ('fill', "none");
+                    document.getElementById('color04').setAttribute ('fill', "none");
+                    document.getElementById('color05').setAttribute ('fill', "none");
+                    document.getElementById('color06').setAttribute ('fill', "none");
+                    document.getElementById('color07').setAttribute ('fill', document.getElementById('colorInput03').value);
+                    document.getElementById('color08').setAttribute ('fill', document.getElementById('colorInput03').value);
+                    document.getElementById('color09').setAttribute ('fill', document.getElementById('colorInput03').value);
+                    
+                }
+            }
+            
+        </script>
+        
+        <script src='nav.js'></script>
+    </body>
+</html>

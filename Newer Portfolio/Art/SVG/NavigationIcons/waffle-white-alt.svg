@@ -1,0 +1,29 @@
+<svg height='240' width='240' xmlns="http://www.w3.org/2000/svg"
+  viewbox='0 0 240 240'
+  xmlns:xlink= "http://www.w3.org/1999/xlink">
+<!--Icon-->
+<g transform='scale(48)'>
+<rect x='0' y='0' width="1" height="1" fill='white' />
+
+<rect x='0' y='2' width="1" height="1" fill='white' />
+
+<rect x='0' y='4' width="1" height="1" fill='white' />
+
+<rect x='2' y='0' width="1" height="1" fill='white' />
+
+<rect x='2' y='2' width="1" height="1" fill='white' />
+
+<rect x='2' y='4' width="1" height="1" fill='white' />
+
+<rect x='4' y='0' width="1" height="1" fill='white' />
+
+<rect x='4' y='2' width="1" height="1" fill='white' />
+
+<rect x='4' y='4' width="1" height="1" fill='white' />
+</g>
+
+
+
+
+<!---->
+</svg>

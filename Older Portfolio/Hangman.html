@@ -1,0 +1,203 @@
+<!DOCTYPE html><!--Daniel Vasquez-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Daniel's Hangman Page</title>
+        <link rel="stylesheet" type="text/css" href="contents/style.css">
+        <style>
+            body {
+                background-color: aquamarine;
+            }
+        </style>
+    </head>
+    <body>
+        <div id='header'></div>
+        <div id='sideBarList'></div>
+        <center id="title">Hangman</center>
+        <p></p>
+        <div id="container">
+            <center>
+                <span id="BodyS">
+                    <input id="letterInput" placeholder="Enter the letter here" type="text" maxlength="3"/>
+                    <div id="button">
+                        <p></p>
+                        <button id="buttonGuess">Guess</button>
+                        <p id="startover"></p>
+                    </div>
+                    <div id="message">Message</div>
+                    <div id="word">Word</div>
+                    <div>Letters Guessed:</div>
+                    <div id="lettersGuessed"> </div>
+                    <br>
+                    <!--Contents-->
+                    <svg width='400' height='400' viewbox='0 0 400 400'
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink= "http://www.w3.org/1999/xlink">
+
+                        <defs>
+                        </defs>
+                        <rect x='0' y='0' width='400' height='400' fill='beige' />
+                        <!--Shapes-->
+                        <!--Stage-->
+                        <polyline fill="none" stroke="black" stroke-width="5px" points="50 350 200 350 215 375 215 395
+                                                                                        5 395 15 395 15 385 25 385 25 375 35 375 35 365 50 365 50 350
+                                                                                        75 350 75 360 75 350 125 300 125 360 125 300 175 350 175 360
+                                                                                        175 365 75 365 75 360 75 365 125 365 125 360 125 365 175 365
+                                                                                        175 350 
+                                                                                        150 325 100 325 125 325 125 150
+                                                                                        150 125 125 125 125 150 150 125 210 125
+                                                                                        210 150
+                                                                                        "/>
+                        <!--Hang-->
+                        <g id="hang" stroke="black">
+                        <polyline fill="none" stroke-width="2.5px" points="210 125 210 170"/>
+                        <polyline fill="none" stroke-width="2.5px" points="205 155 215 160"/>
+                        <polyline fill="none" stroke-width="2.5px" points="205 160 215 165"/>
+                        <polyline fill="none" stroke-width="2.5px" points="205 165 215 170"/>
+                        <ellipse id="ellipse" cx="210" cy="185" rx="10" ry="20" fill="none" stroke-width="2"/>
+                        </g>
+                        <!--Figure-->
+                        <g id="part1">
+                            <circle cx="210" cy="190" r="20" fill="none" stroke-width="3px"/>
+                            <rect x="200" y="185" width="2.5" height="2.5" fill="none"/>
+                            <rect x="215" y="185" width="2.5" height="2.5" fill="none"/>
+                            <rect x="207.5" y="192.5" width="2.5" height="2.5" fill="none"/>
+                            <path d="M202.5 202.5 C 207.5 200, 210 200, 212.5 202.5" fill="none"/>
+                        </g>
+                        <g id="part2">
+                            <polyline fill="none" stroke-width="2.5px" points="210 210 210 270"/>
+                        </g>
+                        <g id="part3">
+                            <polyline fill="none" stroke-width="2.5px" points="210 220 200 230
+                                                                               190 250"/>
+                        </g>
+                        <g id="part4">
+                            <polyline fill="none" stroke-width="2.5px" points="210 220 220 230
+                                                                               230 250"/>
+                        </g>
+                        <g id="part5">
+                            <polyline fill="none" stroke-width="2.5px" points="210 270 200 290
+                                                                               195 310"/>
+                        </g>
+                        <g id="part6">
+                            <polyline fill="none" stroke-width="2.5px" points="210 270 220 290
+                                                                               225 310"/>
+                        </g>
+                        
+                    </svg>
+                    <!--End of contents-->
+                </span>
+            </center>
+        </div>
+        <script src="contents/header.js"></script>
+        <script src="contents/sidebar.js"></script>
+        <script>
+            var words = [
+                "Steve Jobs",
+                "potatoes",
+                "windows",
+                "apple",
+                "Hillary Clinton",
+                "Donald Trump"
+            ];
+            var numberOfGuesses = 0;
+            var numberLeft = 6;
+            var wordU = words[Math.floor(Math.random() * words.length)];
+            var word = wordU.toLowerCase();
+            var answerArray = [];
+            var usedLetter = [];
+            var win = false;
+            document.body.onkeydown = function (e) {
+                if (e.keyCode == 13) {
+                    document.getElementById("buttonGuess").click()
+                }
+            } 
+            for (var i = 0; i < word.length; i++) {
+                answerArray[i] = "_"
+            }
+            document.getElementById("word").textContent = answerArray.join(" ");
+            document.getElementById('message').textContent = "Number of guesses left: " + numberLeft;
+            
+            var remainingLetters = word.length;
+            
+            
+            
+            document.body.onkeypress = function(e) {
+                if (e.keyCode == 13) {
+                    document.getElementById('buttonGuess').click();
+                }
+            }
+            document.getElementById("buttonGuess").onclick = function clicked() {
+                
+                
+                var guess = document.getElementById('letterInput').value;
+                document.getElementById('letterInput').value= "";
+                var guess = guess.toLowerCase();
+                if (guess == "egg") {
+                document.getElementById('message').textContent = "Achievement Get: Find the Easter Egg";
+                }
+                else if (numberOfGuesses == 6) {
+                document.getElementById('message').textContent =  "Too many guesses! Good luck next time!";
+                }
+                else if (guess.length !== 1) {
+                document.getElementById('message').textContent = "Enter a single letter only.";
+                }
+                else if (usedLetter.indexOf(guess) >= 0) {
+                document.getElementById('message').textContent = "You already used that letter!"
+                } 
+                else {
+                    numberOfGuesses = numberOfGuesses + 1;
+                    numberLeft = 6 - numberOfGuesses;
+                    usedLetter.push(guess);
+                    i = 0
+                    for (var j = 0; j < word.length; j++) {
+                        
+                        if (word[j] === guess) {
+                            answerArray[j] = guess;
+                            remainingLetters--;
+                            numberOfGuesses = numberOfGuesses - 1;
+                            numberLeft = 6 - numberOfGuesses;
+                            document.getElementById("word").innerHTML = answerArray.join("&nbsp;");
+                            if (i == 0) {
+                                usedLetter.pop();
+                            }
+                            i++
+                            if (answerArray.join('') == wordU.toLowerCase()) {
+                                win = true
+                                document.getElementById('message').textContent = "You won! The answer was " + wordU;
+                                
+                            }
+                        }
+                        
+                        
+                        if (numberLeft <= 5) {
+                            document.getElementById('part' + numberOfGuesses).setAttribute ('stroke', "black");
+                            if (('part' + numberOfGuesses) == "part1") {
+                                document.getElementById('ellipse').setAttribute ('stroke', "none");
+                            }
+                        }
+                        
+                        
+                        else if (numberOfGuesses == 6) {
+                            document.getElementById('message').textContent = "Too many guesses! Good luck next time!"
+                            remainingLetters = word.length;
+                        }
+                        
+                        
+                    }
+                    document.getElementById('message').textContent = "Number of guesses left: " + numberLeft
+                    document.getElementById('lettersGuessed').textContent = usedLetter.join(" ");
+                }
+                if (win == true) {
+                    document.getElementById('message').textContent = "You won! The answer was " + wordU;
+                }
+                
+                
+            }
+            //Debugger
+            //alert(answerArray.join(" "));
+            //alert("Good job! The answer was " + wordU);
+        </script>
+        <script src='nav.js'></script>
+    </body>
+</html>

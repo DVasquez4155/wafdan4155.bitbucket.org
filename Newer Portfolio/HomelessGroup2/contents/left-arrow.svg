@@ -1,0 +1,9 @@
+<svg height='240' width='240' xmlns="http://www.w3.org/2000/svg"
+  viewbox='0 0 240 240'
+  xmlns:xlink= "http://www.w3.org/1999/xlink">
+
+<!-- the shapes and stuff will go here -->
+
+<polygon points='0 0 240 120 0 240 0 0  z' fill='white' stroke='none' transform='rotate(180 120 120)' /> 
+
+</svg>

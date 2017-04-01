@@ -1,0 +1,77 @@
+<!DOCTYPE html><!--Daniel Vasquez-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Daniel's Message Page</title>
+        <link rel="stylesheet" type="text/css" href="contents/style.css">
+        <style>
+            object {
+                height: 100px;
+                width: 50px;
+            }
+            body {
+                background-color: black;
+                color: #09F009;
+            }
+        </style>
+    </head>
+    <body>
+        <div id='header'></div>
+        <div id='sideBarList'></div>
+        <center id="title">Message</center>
+        <p></p>
+        <div id="container">
+            <center>
+                <span id="BodyS">
+                    <!--Contents-->
+                    <textarea id='userMessage' rows="5" cols="40"></textarea>
+                    <br>
+                    <input id="color" placeholder="Color of Numbers"/>
+                    <input id="bColor" placeholder="Background Color"/>
+                    <input id="colorOff" placeholder="Color of turned off segments"/>
+                    <button id="button">Enter</button>
+                    <div id="message">
+                        
+                    </div><br>
+                    <!--End of contents-->
+                </span>
+            </center>
+        </div>
+        <script src="contents/header.js"></script>
+        <script src="contents/sidebar.js"></script>
+        <script>
+            var color = "#09F009";
+            var bColor = "black";
+            var colorOff = "dimgrey";
+            var i = 0;
+            var mOld = "";
+            document.getElementById('button').onclick = function (e) {
+                document.body.style.color = document.getElementById('color').value;
+                document.body.style.backgroundColor = document.getElementById('bColor').value;
+                color = document.getElementById('color').value;
+                bColor = document.getElementById('bColor').value;
+                colorOff = document.getElementById('colorOff').value;
+                if (color == "") {
+                    color = "#09F009";
+                    document.body.style.color = color = "#09F009";
+                }
+                if (bColor == "") {
+                    bColor = "black";
+                    document.body.style.backgroundColor = bColor = "black";
+                }
+                if (colorOff == "") {
+                    colorOff = "dimgrey";
+                }
+                
+                messageDisplayed(document.getElementById('userMessage').value);
+            }
+            function messageDisplayed(m) {
+                document.getElementById("message").innerHTML = "";
+                for (var i = 0; i < m.length; i++) {
+                    
+                    document.getElementById("message").innerHTML += "<object data='Seven-Segment-Display.svg#" + m[i] + "," + color + "," + bColor + "," + colorOff + "'></object>\n";
+                }
+            }
+        </script>
+    </body>
+</html>

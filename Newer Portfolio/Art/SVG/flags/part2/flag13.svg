@@ -1,0 +1,13 @@
+<svg width='400' height='400' viewbox='0 0 400 400'
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink= "http://www.w3.org/1999/xlink">
+
+    <!--Shapes-->
+
+    <rect x='0' y='0' width="400" height="400" fill="gold" />
+    <polygon points="0 15 175 200 0 375" fill="#424242"/>
+    <polygon points="25 0 200 175 375 0" fill="green"/>
+    <polygon points="400 15 225 200 400 375" fill="#424242"/>
+    <polygon points="25 400 200 225 375 400" fill="green"/>
+
+</svg>

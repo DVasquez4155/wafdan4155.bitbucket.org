@@ -1,0 +1,172 @@
+<svg width='100' height='150' viewBox='0 0 100 150' xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+
+    <g transform="scale(.25)">
+        <!--Background-->
+        <rect x='0' y='0' width='400' height='600' fill='black' id='background'/>
+        <!--Shapes-->
+        <g transform="rotate(0 0 0)" id="n">
+            <polygon points="80 300 90 290 310 290 320 300 310 310 90 310" id="g"/>
+            <polygon points="70 50 80 60 80 280 70 290 60 280 60 60" id="f"/>
+            <polygon points="330 50 340 60 340 280 330 290 320 280 320 60" id="b"/>
+            <polygon points="70 310 80 320 80 540 70 550 60 540 60 320" id="e"/>
+            <polygon points="330 310 340 320 340 540 330 550 320 540 320 320" id="c"/>
+            <polygon points="80 40 90 30 310 30 320 40 310 50 90 50" id="a"/>
+            <polygon points="80 560 90 550 310 550 320 560 310 570 90 570" id="d"/>
+            <rect x='190' y='310' width="20" height="240" id="m"/>
+            <rect x='190' y='270' width="20" height="320" id="x" transform="rotate(45 200 430)"/>
+            <rect x='190' y='270' width="20" height="320" id="v" transform="rotate(-45 200 430)"/>
+            <rect x='190' y='10' width="20" height="320" id="k" transform="rotate(45 200 170)"/>
+            <rect x='190' y='10' width="20" height="320" id="y" transform="rotate(-45 200 170)"/>
+            <rect x='190' y='50' width="20" height="240" id="z"/>
+        </g>
+    </g>
+    <script>
+        <![CDATA[
+            var translationTable = {
+                '#all' : 'abcdefgmkvxyz',
+                '#' : 'abcdefgmkvxyz',
+                ' ' : 'n',
+                '' : 'n',
+                '0' : 'abcdef',
+                '1' : 'bc',
+                '2' : 'abdeg',
+                '3' : 'abcdg',
+                '4' : 'bcfg',
+                '5' : 'acdfg',
+                '6' : 'acdefg',
+                '7' : 'abc',
+                '8' : 'abcdefg',
+                '9' : 'abcdfg',
+                ':' : 'g',
+                '#a' : 'a',
+                '#b' : 'b',
+                '#c' : 'c',
+                '#d' : 'd',
+                '#e' : 'e',
+                '#f' : 'f',
+                '#g' : 'g',
+                '#m' : 'm',
+                '#x' : 'x',
+                '#v' : 'v',
+                '#k' : 'k',
+                '#y' : 'y',
+                '#z' : 'z',
+                'A' : 'abcefg',
+                'a' : 'abcdeg',
+                'B' : 'abcdefg',
+                'b' : 'cdefg',
+                'C' : 'adef',
+                'c' : 'deg',
+                'D' : 'abcdef',
+                'd' : 'bcdeg',
+                'E' : 'adefg',
+                'e' : 'degx',
+                'F' : 'aefg',
+                'f' : 'aefg',
+                'G' : 'acdefg',
+                'g' : 'bcdgk',
+                'H' : 'bcefg',
+                'h' : 'cefg',
+                'I' : 'ef',
+                'i' : 'm',
+                'J' : 'bcd',
+                'j' : 'cd',
+                'K' : 'kcefg',
+                'k' : 'kvef',
+                'L' : 'def',
+                'l' : 'mz',
+                'M' : 'abmcefz',
+                'm' : 'gmce',
+                'N' : 'abcef',
+                'n' : 'ceg',
+                'O' : 'abcdef',
+                'o' : 'cdeg',
+                'P' : 'abefg',
+                'p' : 'abefg',
+                'Q' : 'abcdefv',
+                'q' : 'abcfg',
+                'R' : 'abefgv',
+                'r' : 'eg',
+                'S' : 'acdfg',
+                's' : 'gkx',
+                'T' : 'amz',
+                't' : 'mgz',
+                'U' : 'bcdef',
+                'u' : 'cde',
+                'V' : 'bvcf',
+                'v' : 'vc',
+                'W' : 'mbcedf',
+                'w' : 'mced',
+                'X' : 'bcefg',
+                'x' : 'xv',
+                'Y' : 'bfgm',
+                'y' : 'bxy',
+                'Z' : 'abged',
+                'z' : 'dgx',
+            };
+            function turnOn (id) {
+                document.getElementById(id).setAttribute('fill', color);
+                document.getElementById('background').setAttribute('fill', bColor);
+            }
+            function turnOff (id) {
+                document.getElementById(id).setAttribute('fill', colorOff)
+            }
+            function turnOffAll() {
+                turnOff('a')
+                turnOff('b')
+                turnOff('c')
+                turnOff('d')
+                turnOff('e')
+                turnOff('f')
+                turnOff('g')
+                turnOff('m')
+                turnOff('k')
+                turnOff('v')
+                turnOff('x')
+                turnOff('y')
+                turnOff('z')
+            }
+            
+
+
+            function turnOnSome (s) {
+                turnOffAll();
+                for (var i = 0; i<s.length; i++) {
+                    turnOn(s[i])
+                    
+                }
+            }
+            
+            
+            window.onhashchange = window.onload = function() {
+                var numberAndColor = document.location.hash.substr(1);
+                var nc = numberAndColor.split(',');
+                var number = nc[0];
+                color = nc[1];
+                bColor = nc[2];
+                colorOff = nc[3];
+                if (color == null) {
+                    color = "#09F009"
+                }
+                if (bColor == null) {
+                    bColor = "black"
+                }
+                if (colorOff == null) {
+                    colorOff = "dimgrey"
+                }
+                if (color == "") {
+                    color = "#09F009"
+                }
+                if (bColor == "") {
+                    bColor = "black"
+                }
+                if (colorOff == "") {
+                    colorOff = "dimgrey"
+                }
+                var segments = translationTable[number];
+                    turnOnSome (segments);
+            }
+        ]]>
+    </script>
+
+</svg>

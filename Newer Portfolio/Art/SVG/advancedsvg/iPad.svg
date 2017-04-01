@@ -1,0 +1,21 @@
+<svg width='600' height='400' xmlns="http://www.w3.org/2000/svg"
+  viewbox='0 0 600 400'
+  xmlns:xlink= "http://www.w3.org/1999/xlink">
+    <!--Shapes-->
+    <rect x="0" y="0" width="600" height="400" fill="bisque"/>
+    
+    
+    <g transform="translate(142 42)">
+        <g id='r4'>
+            <g id ='r3'>
+                <g id='r2'>
+                    <rect x="12" y="12" width="64" height="64" id='r1' fill="darkcyan" />
+                    <use xlink:href='#r1' transform="translate(76 0)"/>
+                </g>
+                <use xlink:href='#r2' transform="translate(152 0)"/>
+            </g>
+            <use xlink:href='#r3' transform="translate(0 76)"/>
+        </g>
+        <use xlink:href='#r4' transform="translate(0 152)"/>
+    </g>
+</svg>

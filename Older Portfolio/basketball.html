@@ -1,0 +1,178 @@
+<!DOCTYPE html><!--Daniel Vasquez-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Daniel's Basket Ball Page</title>
+        <link rel="stylesheet" type="text/css" href="contents/style.css">
+        <style>
+        </style>
+    </head>
+    <body>
+        <div id='header'></div>
+        <div id='sideBarList'></div>
+        <center id="title">Basket Ball</center>
+        <p></p>
+        <div id="container">
+            <center>
+                <span id="BodyS">
+                    <!--Contents-->
+                    <svg height='800' width='800' xmlns="http://www.w3.org/2000/svg"
+                      viewbox='0 0 800 800'
+                      xmlns:xlink= "http://www.w3.org/1999/xlink">
+                        
+                        <!--H-->
+                        <defs>
+                           <radialGradient id="orange" cx="0%" cy="40%" r="80%" fx="15%" fy="35%">
+                             <stop offset="0%" style="stop-color:rgb(240,240,240);stop-opacity:1" />
+                             <stop offset="100%" style="stop-color:rgb(255,153,0);stop-opacity:1" />
+                           </radialGradient>
+                        </defs>
+                        <defs>
+                           <radialGradient id="orange2" cx="0%" cy="40%" r="80%" fx="15%" fy="35%">
+                             <stop offset="0%" style="stop-color:rgb(240,240,240);stop-opacity:1" />
+                             <stop offset="100%" style="stop-color:rgb(255,153,0);stop-opacity:1" />
+                           </radialGradient>
+                        </defs>
+                        <!--Icon-->
+                        <rect x="0" y="0" height="800" width="800" fill="antiquewhite" />
+
+                        <defs>
+                            <clipPath id='ball'>
+                                <circle cx='100' cy='100' r='50'/>
+                            </clipPath>
+                        </defs>
+
+                        <g id="basketball">
+                            <circle cx='100' cy='100' r='50' fill="url(#orange)" stroke="black"/>
+
+                            <g clip-path='url(#ball)'>
+                                <circle cx='50' cy='50' r='50' fill="none" stroke-width="1px" stroke="black"/>
+                                <circle cx='150' cy='150' r='50' fill="none" stroke-width="1px" stroke="black"/>
+
+                                <line x1="50" y1="150" x2="150" y2="50" fill="none" stroke-width="1px" stroke="black"/>
+                                <line x1="50" y1="50" x2="150" y2="150" fill="none" stroke-width="1px" stroke="black"/>
+                            </g>
+                        </g>
+
+                        <g id="basketball2">
+                            <circle cx='100' cy='100' r='50' fill="url(#orange2)" stroke="black"/>
+
+                            <g clip-path='url(#ball)'>
+                                <circle cx='50' cy='50' r='50' fill="none" stroke-width="1px" stroke="black"/>
+                                <circle cx='150' cy='150' r='50' fill="none" stroke-width="1px" stroke="black"/>
+
+                                <line x1="50" y1="150" x2="150" y2="50" fill="none" stroke-width="1px" stroke="black"/>
+                                <line x1="50" y1="50" x2="150" y2="150" fill="none" stroke-width="1px" stroke="black"/>
+                            </g>
+                        </g>
+
+
+                    <!---->
+                    </svg>
+                    <br>
+                    <button id="faster">Faster</button>
+                    <button id="slower">Slower</button>
+                    
+                    
+                    <!--End of contents-->
+                </span>
+            </center>
+        </div>
+        <script src="contents/header.js"></script>
+        <script src="contents/sidebar.js"></script>
+        <script>
+            
+            var b = document.getElementById ('basketball');
+            var b2 = document.getElementById ('basketball2');
+            var g = document.getElementById ('orange');
+            var g2 = document.getElementById ('orange2');
+            var x = 0;
+            var x2 = 300;
+            var y = 0;
+            var y2 = 0;
+            var delta_x = 1;
+            var delta_x2 = 1;
+            var delta_y = 1;
+            var delta_y2 = 1;
+            var rot = 0;
+            var rot2 = 0;
+            var delta_rot = delta_x * 360 / 314;
+            var delta_rot2 = delta_x2 * 360 / 314;
+            var yCoord = 1
+            var xCoord = 1
+            
+            
+            function get(id) {
+                return document.getElementById(id);
+            }
+            get("faster").onclick = faster;
+            get("slower").onclick = slower;
+            
+            function faster() {
+                if (delta_x == 10 || delta_x == -10) {
+                     return
+                }
+                if (delta_x >= 1) {
+                    delta_x = delta_x + 1;
+                }
+                if (delta_y >= 1) {
+                    delta_y = delta_y + 1;
+                }
+                if (delta_x < -1) {
+                    delta_x = delta_x - 1;
+                }
+                if (delta_y < -1) {
+                    delta_y = delta_y - 1;
+                }
+                delta_rot = delta_x * 360 / 314;
+            }
+            function slower() {
+                if (delta_x >= -1) {
+                    delta_x = delta_x - 1;
+                }
+                if (delta_y >= -1) {
+                    delta_y = delta_y - 1;
+                }
+                if (delta_x < 1) {
+                    delta_x = delta_x + 1;
+                }
+                if (delta_y < 1) {
+                    delta_y = delta_y + 1;
+                }
+                delta_rot = delta_x * 360 / 314;
+            }
+            
+            function animate() {
+                x += delta_x;
+                x2 += delta_x2;
+                y += delta_y;
+                y2 += delta_y2;
+                rot += delta_rot;
+                rot2 += delta_rot2;
+                if (x >= 650 || x < -50) {
+                    delta_x = - delta_x;
+                    delta_rot = - delta_rot
+                }
+                if (x2 >= 650 || x2 < -50) {
+                    delta_x2 = - delta_x2;
+                    delta_rot2 = - delta_rot2
+                }
+                if (y > 650 || y <= -50) {
+                    delta_y = - delta_y;
+                }
+                if (y2 > 650 || y2 <= -50) {
+                    delta_y2 = - delta_y2;
+                }
+                
+                b.setAttribute ("transform", "translate(" + x + " " + y + ") rotate(" + rot + " 100 100)");
+                b2.setAttribute ("transform", "translate(" + x2 + " " + y2 + ") rotate(" + rot2 + " 100 100)");
+                g.setAttribute ("gradientTransform", "rotate(" + rot + ")");
+                g2.setAttribute ("gradientTransform", "rotate(" + rot2 + ")");
+                setTimeout(animate, 1)
+            }
+            
+            animate();
+        </script>
+        <script src='nav.js'></script>
+    </body>
+</html>

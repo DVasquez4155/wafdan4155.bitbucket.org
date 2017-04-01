@@ -1,0 +1,88 @@
+<svg height='216' width='216' xmlns="http://www.w3.org/2000/svg"
+  viewbox='0 0 216 216'
+  xmlns:xlink= "http://www.w3.org/1999/xlink">
+    <g transform="scale(.2)">
+        <!--C-->
+        <defs>
+           <radialGradient id="C" cx="60%" cy="30%" r="70%" fx="35%" fy="35%">
+             <stop offset="0%" style="stop-color:rgb(220,220,220);stop-opacity:1" />
+             <stop offset="100%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
+           </radialGradient>
+        </defs>
+        <!--N-->
+        <defs>
+           <radialGradient id="N" cx="60%" cy="30%" r="70%" fx="35%" fy="35%">
+             <stop offset="0%" style="stop-color:rgb(220,220,220);stop-opacity:1" />
+             <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+           </radialGradient>
+        </defs>
+        <!--O-->
+        <defs>
+           <radialGradient id="O" cx="60%" cy="30%" r="70%" fx="35%" fy="35%">
+             <stop offset="0%" style="stop-color:rgb(220,220,220);stop-opacity:1" />
+             <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+           </radialGradient>
+        </defs>
+        <!---->
+
+        <defs>
+            <linearGradient id="line" x1="40%" y1="60%" x2="60%" y2="40%">
+              <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+              <stop offset="100%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <defs>
+            <linearGradient id="line1" x1="40%" y1="40%" x2="60%" y2="60%">
+              <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+              <stop offset="100%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <defs>
+            <linearGradient id="line2" x1="10%" y1="10%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+              <stop offset="100%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <!--SVG-->
+        <g transform="translate(0 -100)">
+            <polyline points="719 475 849 400" stroke-width='10' stroke='url(#line1)' transform='translate(20,0)'/>
+            <polyline points="719 475 849 400" stroke-width='10' stroke='url(#line1)' transform='translate(-20,0)'/>
+            <circle cx='849' cy='400' r='40' fill='url(#O)'/>
+
+            <rect x='582' y='700' width='10' height='155' fill='url(#line2)' transform='translate(-12,0)'/>
+            <rect x='582' y='700' width='10' height='155' fill='url(#line2)' transform='translate(12,0)'/>
+            <circle cx='588' cy='855' r='40' fill='url(#O)'/>
+
+
+            <polyline points="713 475 583 400" stroke-width='10' stroke='url(#line)'/>
+
+            <polyline points="457 472 309 424" stroke-width='10' stroke='url(#line)'/>
+            <polyline points="309 424 218 550" stroke-width='10' stroke='url(#line2)' transform='translate(14,0)'/>
+            <polyline points="309 424 218 550" stroke-width='10' stroke='url(#line2)' transform='translate(-14,0)'/>
+            <polyline points="218 550 309 676" stroke-width='10' stroke='url(#line)'/>
+            <polyline points="309 676 457 628" stroke-width='10' stroke='url(#line2)'/>
+            <circle cx='309' cy='424' r='40' fill='url(#N)' />
+            <circle cx='218' cy='550' r='40' fill='url(#C)' />
+            <circle cx='309' cy='676' r='40' fill='url(#N)' />
+
+            <g transform='translate(389,250)'>
+                <polyline points="200 150 70 225" stroke-width='10' stroke='url(#line1)'/>
+                <rect x='63' y='225' width='10' height='155' fill='url(#line2)' transform='translate(12,0)'/>
+                <rect x='63' y='225' width='10' height='155' fill='url(#line2)' transform='translate(-12,0)'/>
+                <polyline points="70 375 200 450" stroke-width='10' stroke='url(#line)'/>
+                <polyline points="200 450 330 375" stroke-width='10' stroke='url(#line1)'/>
+                <rect x='330' y='220' width='12' height='155' fill='url(#line2)' transform='translate(0,-12)'/>
+                <polyline points="330 225 200 150" stroke-width='10' stroke='url(#line)'/>
+                <circle cx='200' cy='150' r='40' fill='url(#N)' />
+                <circle cx='70' cy='225' r='40' fill='url(#C)' />
+                <circle cx='70' cy='375' r='40' fill='url(#C)' />
+                <circle cx='200' cy='450' r='40' fill='url(#C)' />
+                <circle cx='330' cy='375' r='40' fill='url(#N)' />
+                <circle cx='330' cy='225' r='40' fill='url(#C)' />
+
+
+            </g>
+        </g>
+    </g>
+
+</svg>

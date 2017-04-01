@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<!--
+Portfolio - December 14, 2016
+By Daniel Vasquez
+-->
+<html>
+    <head id='head'>
+        <title id='title'>Hangman</title>
+        <style>
+            body  {
+                background-color: #010f20;
+            }
+        </style>
+        <script src='../../contents/headerandfooter.js'></script>
+        <script>
+            var currentSite = 'games';
+            var currentsite = 'Hangman';
+        </script>
+    </head>
+    <body>
+        <header id='header'></header>
+        <div id='links'></div>
+
+        <div class='body'>
+            <h1 id='h1Title' class='title dark'>Hangman</h1>
+            <div id="container">
+                <input id="letterInput" placeholder="Enter the letter here" type="text" maxlength="3"/>
+                    <div id="button">
+                        <button id="buttonGuess">Guess</button>
+                        <p id="startover"></p>
+                    </div>
+                    <button id="buttonCancel">Cancel</button>
+                    <div id="message">Message</div>
+                    <div id="word">Word</div>
+                    <div>Letters Guessed:</div>
+                    <div id="lettersGuessed"> </div>
+                    <br>
+                    <!--Contents-->
+                    <svg width='400' height='400' viewbox='0 0 400 400'
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink= "http://www.w3.org/1999/xlink">
+
+                        <defs>
+                        </defs>
+                        <rect x='0' y='0' width='400' height='400' fill='beige' />
+                        <!--Shapes-->
+                        <!--Stage-->
+                        <polyline fill="none" stroke="black" stroke-width="5px" points="50 350 200 350 215 375 215 395
+                                                                                        5 395 15 395 15 385 25 385 25 375 35 375 35 365 50 365 50 350
+                                                                                        75 350 75 360 75 350 125 300 125 360 125 300 175 350 175 360
+                                                                                        175 365 75 365 75 360 75 365 125 365 125 360 125 365 175 365
+                                                                                        175 350 
+                                                                                        150 325 100 325 125 325 125 150
+                                                                                        150 125 125 125 125 150 150 125 210 125
+                                                                                        210 150
+                                                                                        "/>
+                        <!--Hang-->
+                        <g id="hang" stroke="black">
+                        <polyline fill="none" stroke-width="2.5px" points="210 125 210 170"/>
+                        <polyline fill="none" stroke-width="2.5px" points="205 155 215 160"/>
+                        <polyline fill="none" stroke-width="2.5px" points="205 160 215 165"/>
+                        <polyline fill="none" stroke-width="2.5px" points="205 165 215 170"/>
+                        <ellipse id="ellipse" cx="210" cy="185" rx="10" ry="20" fill="none" stroke-width="2"/>
+                        </g>
+                        <!--Figure-->
+                        <g id="part1">
+                            <circle cx="210" cy="190" r="20" fill="none" stroke-width="3px"/>
+                            <rect x="200" y="185" width="2.5" height="2.5" fill="none"/>
+                            <rect x="215" y="185" width="2.5" height="2.5" fill="none"/>
+                            <rect x="207.5" y="192.5" width="2.5" height="2.5" fill="none"/>
+                            <path d="M202.5 202.5 C 207.5 200, 210 200, 212.5 202.5" fill="none"/>
+                        </g>
+                        <g id="part2">
+                            <polyline fill="none" stroke-width="2.5px" points="210 210 210 270"/>
+                        </g>
+                        <g id="part3">
+                            <polyline fill="none" stroke-width="2.5px" points="210 220 200 230
+                                                                               190 250"/>
+                        </g>
+                        <g id="part4">
+                            <polyline fill="none" stroke-width="2.5px" points="210 220 220 230
+                                                                               230 250"/>
+                        </g>
+                        <g id="part5">
+                            <polyline fill="none" stroke-width="2.5px" points="210 270 200 290
+                                                                               195 310"/>
+                        </g>
+                        <g id="part6">
+                            <polyline fill="none" stroke-width="2.5px" points="210 270 220 290
+                                                                               225 310"/>
+                        </g>
+                        
+                    </svg>
+                    <!--End of contents-->
+                <script>
+                    var words = [
+                        "Steve Jobs",
+                        "potatoes",
+                        "windows",
+                        "apple",
+                        "Hillary Clinton",
+                        "Donald Trump"
+                    ];
+                    var numberOfGuesses = 0;
+                    var numberLeft = 6;
+                    var wordU = words[Math.floor(Math.random() * words.length)];
+                    var word = wordU.toLowerCase();
+                    var answerArray = [];
+                    var usedLetter = [];
+                    var win = false;
+                    for (var i = 0; i < word.length; i++) {
+                        answerArray[i] = "_"
+                    }
+                    document.getElementById("word").textContent = answerArray.join(" ");
+                    document.getElementById('message').textContent = "Number of guesses left: " + numberLeft;
+
+                    var remainingLetters = word.length;
+
+
+
+                    document.body.onkeypress = function(e) {
+                        if (e.keyCode == 13) {
+                            document.getElementById('buttonGuess').click();
+                        }
+                    }
+                    document.getElementById("buttonGuess").onclick = function () {
+                        var guess = document.getElementById('letterInput').value;
+                        document.getElementById('letterInput').value= "";
+                        var guess = guess.toLowerCase();
+                        if (guess == "egg") {
+                        document.getElementById('message').textContent = "Achievement Get: Find the Easter Egg";
+                        }
+                        else if (numberOfGuesses == 6) {
+                        document.getElementById('message').textContent =  "Too many guesses! Good luck next time!";
+                        }
+                        else if (guess.length !== 1) {
+                        document.getElementById('message').textContent = "Enter a single letter only.";
+                        }
+                        else if (usedLetter.indexOf(guess) >= 0) {
+                        document.getElementById('message').textContent = "You already used that letter!"
+                        } 
+                        else {
+                            numberOfGuesses = numberOfGuesses + 1;
+                            numberLeft = 6 - numberOfGuesses;
+                            usedLetter.push(guess);
+                            i = 0
+                            for (var j = 0; j < word.length; j++) {
+
+                                if (word[j] === guess) {
+                                    answerArray[j] = guess;
+                                    remainingLetters--;
+                                    numberOfGuesses = numberOfGuesses - 1;
+                                    numberLeft = 6 - numberOfGuesses;
+                                    document.getElementById("word").textContent = answerArray.join(" ");
+                                    if (i == 0) {
+                                        usedLetter.pop();
+                                    }
+                                    i++
+                                    if (answerArray.join('') == wordU.toLowerCase()) {
+                                        win = true
+                                        document.getElementById('message').textContent = "You won! The answer was " + wordU;
+                                    }
+                                }
+
+
+                                if (numberLeft <= 5) {
+                                    document.getElementById('part' + numberOfGuesses).setAttribute ('stroke', "black");
+                                    if (('part' + numberOfGuesses) == "part1") {
+                                        document.getElementById('ellipse').setAttribute ('stroke', "none");
+                                    }
+                                }
+
+
+                                else if (numberOfGuesses == 6) {
+                                document.getElementById('message').textContent = "Too many guesses! Good luck next time!"
+                                remainingLetters = word.length;
+                                }
+
+
+                            }
+                            document.getElementById('message').textContent = "Number of guesses left: " + numberLeft
+                            document.getElementById('lettersGuessed').textContent = usedLetter.join(" ");
+                        }
+                        if (win == true) {
+                            document.getElementById('message').textContent = "You won! The answer was " + wordU;
+                        }
+
+
+                    }
+
+                    document.getElementById('startover').onclick = function () {
+                                var usedLetter = [" "];
+                                var numberOfGuesses = 0;
+                                var numberLeft = 6;
+                                var wordU = words[Math.floor(Math.random() * words.length)];
+                                var word = wordU.toLowerCase();
+                                var answerArray = [];
+                                var usedLetter = [];
+                                for (var i = 0; i < word.length; i++) {
+                                    answerArray[i] = "_"
+                                }
+                                document.getElementById("word").textContent = answerArray.join(" ");
+
+                                var remainingLetters = word.length;
+                                console.log("test")
+
+                        }
+                </script>
+                
+            </div>
+        </div>
+
+        <footer id='footer'></footer>
+    </body>
+
+</html>

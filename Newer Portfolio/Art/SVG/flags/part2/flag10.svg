@@ -1,0 +1,19 @@
+<svg width='400' height='400' viewbox='0 0 400 400'
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink= "http://www.w3.org/1999/xlink">
+
+    <!--Shapes-->
+
+    <rect x='0' y='0' width="600" height="400" fill="white" />
+    
+    <rect x='0' y='0' width='125' height='175' fill='dodgerblue'/>
+    <rect x='0' y='225' width='125' height='175' fill='dodgerblue'/>
+    
+    <rect x='175' y='0' width='350' height='175' fill='dodgerblue'/>
+    <rect x='175' y='225' width='350' height='175' fill='dodgerblue'/>
+    
+    <rect x='137.5' y='0' width="25" height="400" fill="red"/>
+    <rect x='0' y='187.5' width='600' height='25' fill='red'/>
+    
+
+</svg>

@@ -1,0 +1,52 @@
+<svg height='400' width='600' xmlns="http://www.w3.org/2000/svg"
+  viewbox='0 0 600 600'
+  xmlns:xlink= "http://www.w3.org/1999/xlink">
+    <rect width='600' height='400' fill='white'/>
+<!--Defs-->
+<defs>
+    <clipPath id='p1'>
+        <rect y='80' width='600' height='40' fill='none' stroke='aqua'/>
+    </clipPath>
+    <clipPath id='p2'>
+        <rect y='119' width='600' height='38' fill='none' stroke='aqua'/>
+    </clipPath>
+    <clipPath id='p3'>
+        <rect y='157' width='600' height='36' fill='none' stroke='aqua'/>
+    </clipPath>
+    <clipPath id='p4'>
+        <rect y='193' width='600' height='37' fill='none' stroke='aqua'/>
+    </clipPath>
+    <clipPath id='p5'>
+        <rect y='230' width='600' height='39' fill='none' stroke='aqua'/>
+    </clipPath>
+    <clipPath id='p6'>
+        <rect y='269' width='600' height='42' fill='none' stroke='aqua'/>
+    </clipPath>
+
+<path d='M 150 95
+         C 115 95 110 80 88 80
+         C 60 80 12 107 12 162
+         C 12 240 60 310 92 311
+         C 119 310 121 300 145 300
+         C 170 300 173 310 201 310
+         C 220 310 255 260 259 230
+         C 219 214 203 124 259 110
+         
+         C 245 90 230 80 207 80
+         C 180 80 165 95 145 95'
+      id='apple' stroke-width='1' stroke-linejoin='round' stroke-linecap='round' />
+</defs>
+<!--Icon-->
+<path d='M 197 10
+         C 160 10 129 50 135 85
+         C 170 80 200 50 197 10'
+      stroke-width='1' stroke-linejoin='round' stroke-linecap='round' fill='#61BB46' />
+
+    <use xlink:href='#apple' fill='#61bb46' clip-path='url(#p1)' />
+    <use xlink:href='#apple' fill='#fdb827' clip-path='url(#p2)' />
+    <use xlink:href='#apple' fill='#f5821f' clip-path='url(#p3)' />
+    <use xlink:href='#apple' fill='#e03a3e' clip-path='url(#p4)' />
+    <use xlink:href='#apple' fill='#963d97' clip-path='url(#p5)' />
+    <use xlink:href='#apple' fill='#009ddc' clip-path='url(#p6)' />
+<text x='250' y='320' fill='black' font-size='40px' text-anchor='middle' font-type='Arial' >®</text>
+    </svg>

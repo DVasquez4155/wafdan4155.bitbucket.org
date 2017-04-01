@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+Homeless Project - November 29, 2016
+       CEO: Jeremiah S.
+     Coder: Daniel V.
+    Artist: Danielle P.
+Researcher: Malik R.
+-->
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../style.css">
+        <link rel="icon" href="../favicon.ico">
+        <title id=title>Hungry, Hungry, Homeless</title>
+        <style>
+        </style>
+        <script src='../contents/sidebar.js' id='newsScript'></script>
+        <script src='../contents/headerandfooter.js'></script>
+    </head>
+    <body>
+        <div id='sidebar' class='side'>
+        </div>
+        
+        <div class='main'>
+            <header id='header'>
+            </header>
+        
+        
+            <div class='body'>
+                <div id='currentPageLink'>
+                    <span>
+                        <a href="../index.html" class='acurrentPageLink'>Home</a>
+                        >>
+                        <span id='links'>
+                            <a href="../index.html"  id='currentALink' class='acurrentPageLink'></a>
+                        </span>
+                    </span>
+                </div>
+               
+                    <center>
+                        <div class='box'>
+                                <h3>
+                                    Hungry, Hungry, Homeless - Error
+                                </h3>
+                                <p>The requested page could not be found. It appears either that page doesn't exist or was eaten by Daniel Vasquez</p>
+                                <p>Return to the home page by <a class="dark" href="../index.html">clicking here.</a></p>
+                        </div>
+                    </center>
+                        
+                     
+                        
+                <p></p>
+                <p></p>
+                <br />
+            </div>
+            <footer id='footer'>
+            </footer>
+        </div>
+    </body>
+    <script>
+        var hrefLocation = location.href.split('/');
+        for (var i=0; i<hrefLocation.length+1; i++) {
+            hrefLocation.shift();
+        }
+        hrefLocation = hrefLocation.pop().replace('.html', '');
+        hrefLocation = hrefLocation.split('')
+        hrefLocation[0] = hrefLocation[0].toUpperCase();
+        document.getElementById('links').innerHTML = '<a class="acurrentPageLink" href="../index.html">404</a>'
+        document.getElementById('currentALink').innerHTML = hrefLocation.join('');
+        document.getElementById('currentALink').href = location.href;
+    </script>
+    <script>
+        var currentSite = 'home';
+        var back = '../';
+        var currentsite = 'Error';
+        sidebarStart();
+        headerAndFooterStart();
+    </script>
+</html>

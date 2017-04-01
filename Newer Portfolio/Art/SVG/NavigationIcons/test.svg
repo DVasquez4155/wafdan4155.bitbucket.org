@@ -1,0 +1,16 @@
+<svg height='240' width='240' xmlns="http://www.w3.org/2000/svg"
+  viewbox='0 0 240 240'
+  xmlns:xlink= "http://www.w3.org/1999/xlink">
+<!--Icon-->
+<g transform='scale(53)'>
+<rect width='2' height='2' fill='red' />
+<rect y='2.5'  width='2' height='2' fill='blue' />
+<rect x='2.5'  width='2' height='2' fill='green' />
+<rect x='2.5' y='2.5'  width='2' height='2' fill='orange' />
+</g>
+
+
+
+
+<!---->
+</svg>

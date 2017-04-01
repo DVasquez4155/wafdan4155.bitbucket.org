@@ -1,0 +1,11 @@
+<svg width='400' height='400' viewbox='0 0 400 400'
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink= "http://www.w3.org/1999/xlink">
+
+    <!--Shapes-->
+
+    <rect x='0' y='0' width="133" height="400" fill="green" />
+    <rect x='133' y='0' width='133' height='400' fill='white' />
+    <rect x='266' y='0' width="133" height="400" fill="gold" />
+
+</svg>

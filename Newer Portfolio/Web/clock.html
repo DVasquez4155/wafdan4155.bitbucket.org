@@ -1,0 +1,124 @@
+<!DOCTYPE html><!--Daniel Vasquez-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Daniel's Clock Page</title>
+        <link rel="stylesheet" type="text/css" href="contents/style.css">
+        <style>
+            object {
+                height: 150px;
+                width: 100px;
+            }
+            body {
+                background-color: black;
+                color: #09F009;
+            }
+        </style>
+    </head>
+    <body>
+        <div id='header'></div>
+        <div id='sideBarList'></div>
+        <center id="title">Clock</center>
+        <p></p>
+        <div id="container">
+            <center>
+                <span id="BodyS">
+                    <!--Contents-->
+                    <object data="Seven-Segment-Display.svg"></object>
+                    <object data="Seven-Segment-Display.svg"></object>
+                    <object data="Seven-Segment-Display.svg"></object>
+                    <object data="Seven-Segment-Display.svg"></object>
+                    <object data="Seven-Segment-Display.svg"></object>
+                    <object data="Seven-Segment-Display.svg"></object>
+                    <object data="Seven-Segment-Display.svg"></object>
+                    <object data="Seven-Segment-Display.svg"></object>
+                    <object data="Seven-Segment-Display.svg"></object>
+                    <object data="Seven-Segment-Display.svg"></object>
+                    <object data="Seven-Segment-Display.svg"></object><br>
+                    <p id="time"></p><br><br>
+                    <input id="color" placeholder="Color of Numbers"/>
+                    <input id="bColor" placeholder="Background Color"/>
+                    <input id="colorOff" placeholder="Color of turned off segments"/>
+                    <button id="button">Enter</button>
+                    <!--End of contents-->
+                </span>
+            </center>
+        </div>
+        <script src="contents/header.js"></script>
+        <script src="contents/sidebar.js"></script>
+        <script>
+            var numerals = document.getElementsByTagName('object');
+            var pm = false;
+            var color = "#09F009";
+            var bColor = "black";
+            var colorOff = "dimgrey";
+            var tOld = "";
+            function timeUpdated() {
+                
+                var d = new Date();
+                var t = d.toTimeString().substr(0, 8);
+                
+                if(t[0] + "" + t[1] >= 12) {
+                    if (t[0] + "" + t[1] == 12) {
+                        pm = true
+                        
+                    }
+                    var t = parseFloat(t[0] + "" + t[1]) - 12 + t[2] + t[3] + t[4] + t[5] + t[6] + t[7]
+                    var t = t.split('');
+                    t.push(" ", "P", "m");
+                    if (t[0] != 0) {
+                        t.unshift("0");
+                    }
+                    else if (pm == true) {
+                        
+                        t.unshift("1", "2");
+                        t.splice(2, 1);
+                        
+                    }
+                }
+                else if(t[0] + "" + t[1] == 0) {
+                    var t = t[2] + t[3] + t[4] + t[5] + t[6] + t[7]
+                    var t = t.split('');
+                    t.push(" ", "A", "m");
+                    if (t[0] != 0) {
+                        t.unshift("1", "2");
+
+                    }
+                }
+                else {
+                    var t = t.split('');
+                    t.push(" ", "A", "m");
+                }
+                document.getElementById('time').textContent = t.join("");
+                for (var i = 0; i < 11; i++) {
+                    if (tOld[i] != t[i]) {
+                        numerals[i].outerHTML = "<object data='Seven-Segment-Display.svg#" + t[i] + "," + color + "," + bColor + "," + colorOff + "'></object>\n";
+                    }
+                }
+                tOld = t;
+                setTimeout (timeUpdated, 100);
+            }
+            
+            timeUpdated();
+            document.getElementById('button').onclick = function() {
+                tOld = "";
+                document.body.style.color = document.getElementById('color').value;
+                document.body.style.backgroundColor = document.getElementById('bColor').value;
+                color = document.getElementById('color').value;
+                bColor = document.getElementById('bColor').value;
+                colorOff = document.getElementById('colorOff').value;
+                if (color == "") {
+                    color = "#09F009";
+                    document.body.style.color = color = "#09F009";
+                }
+                if (bColor == "") {
+                    bColor = "black";
+                    document.body.style.backgroundColor = bColor = "black";
+                }
+                if (colorOff == "") {
+                    colorOff = "dimgrey";
+                }
+            }
+        </script>
+    </body>
+</html>
