@@ -11,6 +11,15 @@ Colors
 center.colored, header, div.main, footer {
     background-color: white;
 }
+#header {
+/*
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-image: url(contents/banner.jpg);
+    background-size: cover;
+*/
+
+}
 div.topbarlink {
     background-color: #f69101;
 }
@@ -33,7 +42,14 @@ div.sidebox {
 /**
 Other Styles
 **/
-
+.main, .body {
+    position: relative;
+    top: -3em;
+}
+ .topbarlinks {
+    position: relative;
+    top: -5em;
+}
 
 
 body {
@@ -75,7 +91,6 @@ div.body {
     width: 94%;
     position: relative;
     left: 2em;
-    top: 1em;
 }
 div.side {
     display: block;
@@ -113,6 +128,7 @@ img.logo {
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    
 }
 div.topbarlinks {
     display: block;
@@ -389,7 +405,8 @@ label {
     width: 90%;
     text-align: left;
     padding: 2em;
-    background-color: #f69101;
+    /* Look at this */
+    background-color: #F69C1A;
     
 }
 object {
@@ -417,4 +434,7 @@ object.event {
     width: 100%;
     border: none;
     height: 100%;
+}
+.gray {
+    filter: grayscale(100%);
 }

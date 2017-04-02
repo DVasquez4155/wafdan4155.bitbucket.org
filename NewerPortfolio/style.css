@@ -5,6 +5,7 @@ html {
 body {
     font-family: 'Source Sans Pro', sans-serif;
     background-image: url(contents/background.jpg);
+    background-size: cover;
     color: grey;
 }
 div.topbarlink {
