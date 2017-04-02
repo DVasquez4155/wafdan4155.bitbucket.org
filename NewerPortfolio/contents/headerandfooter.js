@@ -48,7 +48,12 @@ window.onload = function () {
             document.getElementById('header').innerHTML += "<div class='topbarlinks' id='topbarlinks'></div>";
             for (var i = 0; i < topbarlinks.length; i++) {
                 if (topbarlinks[i][0] == currentSite) {
-                    var link = extraBack + "index.html";
+                    if (currentSite == "about") {
+                        var link = back + 'about.html';
+                    }
+                    else {
+                        var link = extraBack + "index.html";
+                    }
                 }
                 else if (topbarlinks[i][0] == "home") {
                     var link = back + 'index.html';
@@ -57,8 +62,9 @@ window.onload = function () {
                     var link = back + 'about.html';
                 }
                 else {
-                    var link = back + topbarlinks[i][0] + "/index.html";
+                    var link = back + topbarlinks[i][1] + "/index.html";
                 }
+                console.log(link)
                 document.getElementById('topbarlinks').innerHTML += "<a href='" + link + "'><div class='topbarlink' id='" + topbarlinks[i][0] + "'>" + topbarlinks[i][1] + "</div</a>";
             }
             resize()
