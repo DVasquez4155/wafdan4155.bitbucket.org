@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<!--
+Portfolio - December 14, 2016
+By Daniel Vasquez
+-->
+<html>
+    <head id='head'>
+        <title id='title'>Art</title>
+        <style>
+            body  {
+                background-color: #010f20;
+            }
+            body {
+                margin: 0px;
+                padding: 0px;
+            }
+            .canvas {
+                position: absolute;
+                margin-left: auto;
+                margin-right: auto;
+                left: 0;
+                right: 0;
+            }
+        </style>
+        <script src='../../../contents/headerandfooter.js'></script>
+        <script>
+            var currentSite = 'art';
+            var currentsite = 'Snow Globe';
+        </script>
+    </head>
+    <body>
+        <header id='header'></header>
+        <div id='links'></div>
+
+        <div class='body'>
+            <h1 id='h1Title' class='title dark'>Art</h1>
+            <div id="container">
+                <canvas class='canvas' id='background' width='600' height='800'></canvas>
+                <canvas class='canvas' id='snow' width='600' height='800'></canvas>
+                <canvas class='canvas' id='stars' width='600' height='800'></canvas>
+                <canvas class='canvas' id='trees' width='600' height='800'></canvas>
+                <canvas class='canvas' id='bigtree' width='600' height='800'></canvas>
+                <canvas class='canvas' id='ornaments' width='600' height='800'></canvas>
+                <canvas class='canvas' id='lights' width='600' height='800'></canvas>
+                <canvas width='600' height='800'></canvas>
+                <p></p>
+
+                <script>
+                    var width = 600;
+                    var height = 800;
+                    var ornamentRadius = 10;
+                    var ornamentColors = ["#ECBF17", "#F84E4E", "#33D7FF", "#CE33FF", "#33FF36", "#33FFD1", "#FF33C1", "#EC7B17", "#BCEC17", "#1761EC"];
+                    var snow = [];
+                    var timer = null;
+
+
+                    drawTheSnowGlobe();
+
+                    function get(id) {
+                        return document.getElementById(id);
+                    }
+                    function drawTheSnowGlobe() {
+                        width = window.innerWidth*.50;
+                        height = window.innerHeight;
+
+                        var canvases = document.getElementsByTagName('canvas');
+                        for (var i=0; i<canvases.length; i++) {
+                            canvases[i].setAttribute('width', width);
+                            canvases[i].setAttribute('height', height);
+                        }
+                        if (timer) {
+                            clearTimeout(timer);
+                            timer = null;
+                        }
+                        snow = [];
+                        drawBackground();
+                        drawTrees();
+                        drawBigTree();
+                        drawStars();
+                        drawLights();
+                        drawOrnaments();
+                        drawSnow();
+                        moveSnow();
+                    }
+
+                    function drawBackground() {
+                        var ctx = get('background').getContext('2d');
+                        ctx.beginPath();
+                        ctx.rect(0, 0, width, height);
+                        ctx.fillStyle = '#578';
+                        ctx.fill();
+                        ctx.closePath;
+
+                        ctx.beginPath();
+                        ctx.rect(0, height*2/3, width, height/3);
+                        ctx.fillStyle = 'lightgray';
+                        ctx.fill();
+                        ctx.closePath();
+                    }
+
+                    function drawTree(x, y, w, h, c) {
+                        var ctx = get('trees').getContext('2d');
+                        ctx.beginPath();
+                        ctx.moveTo(x - (w/2), y);
+                        ctx.lineTo(x + (w/2), y);
+                        ctx.lineTo(x, y - (h))
+
+                        var grad = ctx.createLinearGradient(x+w/4, y, x-w/2, y/2);
+                        grad.addColorStop(0, "#044");
+                        grad.addColorStop(1, c);
+                        ctx.fillStyle = grad;
+                        ctx.fill();
+                        ctx.closePath;
+                    }
+                    function drawTrees() {
+                        for (var i=0; i<200; i++) {
+                            var x = Math.random() * width;
+                            var y = height * 2/3 + Math.random() * height/3;
+                            var w = Math.random() * width / 20;
+                            var h = Math.random() * height / 2;
+                            var c = (Math.random() > 0.5) ? "#053" : "#044";
+                            drawTree(x, y, w, h, c);
+                        }
+                    }
+
+                    function drawBigTree() {
+                        drawTree(width/2, height, width*0.8, height * 0.8, 'green')
+                    }
+
+
+                    function drawOrnament(x, y, r, c, useGradient) {
+                        if (!inTree(x, y)) {
+                            return
+                        }
+                        var ctx = get('ornaments').getContext('2d');
+
+                        ctx.beginPath();
+                        ctx.arc(x, y, r, 0, 2 * Math.PI, false)
+
+                        if (useGradient) {
+                            var grad = ctx.createRadialGradient(x-0.4*r, y-0.4*r, 0, x-0.4*r, y-0.4*r, 1.4*r);
+                            grad.addColorStop(0, "#eee");
+                            grad.addColorStop(0.4, c);
+                            grad.addColorStop(1, "#555");
+                            ctx.fillStyle = grad;
+                        }
+                        else {
+                            ctx.fillStyle = c;
+                        }
+                        ctx.fill();
+                    }
+                    function drawOrnaments() {
+                        for (var i=0; i<10; i++) {
+                            for (var j=0; j<10; j++) {
+                                var x = i * width /10 + Math.random() * 40;
+                                var y = j * height /10 + Math.random() * 40;
+                                var whichColor = Math.floor(Math.random() * ornamentColors.length);
+                                drawOrnament(x, y, ornamentRadius, ornamentColors[whichColor], true);
+                            }
+                        }
+
+                        /*for (var i=0; i<100; i++) {
+                            var x = Math.random() * width;
+                            var y = Math.random() * height;
+                            var whichColor = Math.floor(Math.random() * ornamentColors.length);
+
+                            if (!inTree(x, y)) {
+                                i--
+                            }
+                            drawOrnament(x, y, ornamentRadius, ornamentColors[whichColor])
+                        }
+                        */
+                    }
+                    function inTree(x, y) {
+                        return y > (-2 * height * x / width) + (1.2 * height) && y > (2 * height * x / width) + (-0.8 * height);
+                    }
+
+                    function drawLights() {
+                        for (var i=0; i<256; i++) {
+                            var x = (i * width / 16) % width + Math.random() * 10;
+                            var y = i * height / 256 + Math.random() * 10;
+                            drawOrnament (x, y, 3, "white", false)
+                        }
+                    }
+                    function drawSnowFlake(x, y, r) {
+                        //if (inTree(x, y)) {
+                        //    return
+                        //}
+                        var ctx = get('snow').getContext('2d');
+                        ctx.beginPath();
+                        ctx.arc(x, y, r, 0, Math.PI*2, false)
+
+                        ctx.fillStyle = "white";
+                        ctx.fill();
+                    }
+
+                    function drawSnow() {
+                        for (var i=0; i<1000; i++) {
+                            var x = width * Math.random();
+                            var y = height * Math.random();
+                            var r = 1 + Math.random() * 2;
+                            drawSnowFlake (x, y, r);
+                            snow.push([x, y, r]);
+                        }
+                    }
+
+                    function moveSnow() {
+                        var ctx = get('snow').getContext('2d');
+                        ctx.clearRect(0, 0, width, height);
+                        var speed = 0.03;
+                        for (var i=0; i<snow.length; i++) {
+                            snow[i][1] += (5 + Math.random() * 5) * speed;
+                            snow[i][1] %= (height) * 0.67;
+                            snow[i][0] += (Math.random() * 10 - 2) * speed;
+                            snow[i][0] %= (width);
+                            drawSnowFlake(snow[i][0], snow[i][1], snow[i][2]);
+                        }
+                        timer = setTimeout(moveSnow, 0);
+                    }
+
+                    function drawStar(x, y, r) {
+                        var ctx = get('stars').getContext('2d');
+                        ctx.moveTo(x, y-r);
+                        ctx.lineTo(x, y+r);
+                        ctx.moveTo(x-r, y);
+                        ctx.lineTo(x+r, y);
+                        ctx.strokeStyle = 'white';
+                        ctx.stroke();
+                    }
+                    function drawStars() {
+                        for (var i=0; i<100; i++) {
+                            var x = Math.random() * width;
+                            var y = Math.random() * height/1.55;
+                            var r = Math.random() * 10;
+                            drawStar(x, y, r);
+                        }
+                    }
+                    window.onresize = function() {
+                        drawTheSnowGlobe();
+                    }
+
+                </script>
+            </div>
+        </div>
+
+        <footer id='footer'></footer>
+    </body>
+
+</html>

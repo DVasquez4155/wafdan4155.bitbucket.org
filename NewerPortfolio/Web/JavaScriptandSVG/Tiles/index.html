@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+Portfolio - December 14, 2016
+By Daniel Vasquez
+-->
+<html>
+    <head id='head'>
+        <title id='title'>JavaScript</title>
+        <style>
+            body  {
+                background-color: #010f20;
+            }
+        </style>
+        <script src='../../../contents/headerandfooter.js'></script>
+        <script>
+            var currentSite = 'web';
+            var currentsite = 'Tiles';
+        </script>
+    </head>
+    <body>
+        <header id='header'></header>
+        <div id='links'></div>
+
+        <div class='body'>
+            <h1 id='h1Title' class='title dark'>JavaScript</h1>
+            <div id="container">
+                <svg width='600' height='400' xmlns="http://www.w3.org/2000/svg"
+                  viewbox='0 0 600 400'
+                  xmlns:xlink= "http://www.w3.org/1999/xlink">
+                    <rect x='0' y='0' width='600' height='400' fill="beige"/>
+                <!--Shapes-->
+                    <g id='squares'>
+                    </g>
+
+                </svg>
+            </div>
+        </div>
+
+        <footer id='footer'></footer>
+        <script>
+            var across = 6;
+            var down = 4;
+            var margin = 3;
+            var sizeW = 6;
+            var middleX = (across * sizeW + (across + 1) * margin) / 2;
+            var middleY = (down * sizeW + (down + 1) * margin) / 2;
+            var startX = 300 - middleX;
+            var startY = 200 - middleY;
+            
+            //write a bunch of rows
+            for (var j = 0; j<down; j++) {
+                
+                //draw a bunch of squares
+                for (var i = 0; i<across; i++) {
+                    //draw one square in the right place
+                    //x, y, width, height, fill
+                    var x = startX + margin + i * (margin + sizeW)
+                    var y = startY + margin + j * (margin + sizeW)
+                    
+                    var sq = drawSquare (x, y, size, "red");
+                    document.getElementById('squares').innerHTML += sq;
+                    setTimeout(10000);
+                    
+                }
+            }
+            function drawSquare (x, y, size, fill) {
+                return printF ("<rect x='%s' y='%s' width='%s' height='%s' fill='%s' />",
+                       x, y, sizeW, sizeW, fill)
+            }
+            
+            function printF () {
+                    var g = arguments[0];
+                    for (var i=1; i<arguments.length; i++) {
+                        g = g.replace("%s", arguments[i]);
+                    }
+                    return g;
+                }
+            
+        </script>
+    </body>
+
+</html>

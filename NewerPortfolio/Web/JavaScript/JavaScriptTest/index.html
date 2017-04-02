@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!--
+Portfolio - December 14, 2016
+By Daniel Vasquez
+-->
+<html>
+    <head id='head'>
+        <title id='title'>JavaScript</title>
+        <style>
+            body  {
+                background-color: #010f20;
+            }
+            .hack {
+                padding: 1em;
+                background-color: azure;
+                margin: 1em;
+                border: 1px solid aquamarine;
+                width: auto;
+            } 
+        </style>
+        <script src='../../../contents/headerandfooter.js'></script>
+        <script>
+            var currentSite = 'web';
+            var currentsite = 'Student Attribute Test';
+        </script>
+    </head>
+    <body>
+        <header id='header'></header>
+        <div id='links'></div>
+
+        <div class='body'>
+            <h1 id='h1Title' class='title dark'>JavaScript</h1>
+            <div id="container">
+                <p id='number'>42</p>
+                <p>
+                    <button id='1'>Button 1</button>
+                    <button id='2'>Button 2</button>
+                    <button id='3'>Button 3</button>
+                    <button id='4'>Button 4</button>
+                    <button id='5'>+</button>
+                    <button id='6'>-</button>
+                </p>
+                <p>
+                    <button id='7'>Random Background Color</button>
+                    <button id='8'>Random Text Color</button>
+                    <button id='9'>Random Number</button>
+                    <button id='10'>Clear Decimals</button>
+                    <button id='11'>*2</button>
+                    <button id='12'>/2</button>
+                </p>
+            </div>
+        </div>
+
+        <footer id='footer'></footer>
+        <script>
+            function get(id) {
+                return document.getElementById(id);
+            }
+            var number = 42;
+            get("1").onclick = back1;
+            get("2").onclick = back2;
+            get("3").onclick = color1;
+            get("4").onclick = color2;
+            get("5").onclick = add;
+            get("6").onclick = sub;
+            
+            get("7").onclick = randomB;
+            get("8").onclick = randomC;
+            get("9").onclick = randomN;
+            get("10").onclick = floor;
+            get("11").onclick = multiply;
+            get("12").onclick = divide;
+            
+            //part 1
+            function back1() {
+                document.getElementsByClassName('body')[0].style.backgroundColor = "coral";
+            }
+            function back2() {
+                document.getElementsByClassName('body')[0].style.backgroundColor = "cyan";
+            }
+            function color1() {
+                document.getElementsByClassName('body')[0].style.color = "red";
+            }
+            function color2() {
+                document.getElementsByClassName('body')[0].style.color = "blue";
+            }
+            
+            
+            function add() {
+                number ++;
+                document.getElementById('number').textContent = number;
+            }
+            function sub() {
+                number --;
+                document.getElementById('number').textContent = number;
+            }
+            
+            //part 2
+            
+            var colors= ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"]
+            var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+            
+            function random(c) {
+                return c[Math.floor(Math.random()*c.length)];
+            }
+            function randomColor() {    
+            color = ("#" + random(colors) + random(colors) + random(colors) + random(colors) + random(colors) + random(colors));
+            }
+            
+            function randomB() {
+                randomColor();
+                document.getElementsByClassName('body')[0].style.backgroundColor = color;
+            }
+            function randomC() {
+                randomColor();
+                document.getElementsByTagName('body')[0].style.color = color;
+            }
+            
+            function randomN() {
+                number = random(numbers) + "" + random(numbers);
+                document.getElementById('number').textContent = number;
+            }
+            
+            function floor() {
+                number = Math.floor(number);
+                document.getElementById('number').textContent = number;
+            }
+            
+            function multiply() {
+                number = number * 2;
+                document.getElementById('number').textContent = number;
+            }
+            function divide() {
+                number = number / 2;
+                document.getElementById('number').textContent = number;
+            }
+            
+        </script>
+        
+    </body>
+
+</html>

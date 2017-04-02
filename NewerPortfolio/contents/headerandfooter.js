@@ -5,6 +5,12 @@ var topbarlinks = [
     ["art", "Art"],
     ["games", "Games"],
 ];
+var tree = {
+    Web : ["%HTML", "Cheat Sheet", "Colors", "Commands", "%JavaScript", "Random String", "Hacker Speak", "Sorting", "JavaScript Test", "Text Box", "%JavaScript and SVG", "Crazy Buttons", "Speedometer", "Tiles", "BasketBall", "Grades"],
+    Art : ["%SVG", "Random Shapes", "Venn Diagram", "Molecules", "Navigation Icons", "Icons", "Advanced SVG", "Letters", "Apple", "Flags", "%Screens", "Screen Sizes", "Screen and Icon Sizes", "%HTML Canvas", "Snow Globe"],
+    Games : ["Hangman", "Tic Tac Toe", "Chase", "Maze (Not Done)"],
+}
+
 /*
 
     ["home", "Home"],
@@ -37,14 +43,38 @@ if (typeof topLinksEnable !== undefined) {
     var topLinksEnable = true;
     window.addEventListener("resize", resize);
 }
+function removeSpace(string) {
+    return string.replace(/ /g,'')
+}
 window.onload = function () {
+    
     function headerAndFooterStart() {
         if (typeof startSlideShow != "undefined") {
             startSlideShow(back)
         }
+        
         document.getElementById('header').innerHTML += "<div class='status'><div id='time'></div></div>";
         
         if (topLinksEnable) {
+            if (tree[currentsite] != null) {
+                var currentSection = ""
+                for (var i = 0; i < tree[currentsite].length; i++) {
+                    if (tree[currentsite][i][0] == "%") {
+                        currentSection = tree[currentsite][i].substring(1, tree[currentsite][i].length)
+                        document.getElementById('figures').innerHTML += "<h1 id='h1Title' class='title dark center'>" + currentSection + "</h1>"
+                        currentSection += "/"
+                    }
+                    else if (typeof(tree[currentsite][i]) == 'object') {
+                        for (var j = 0; j < tree[currentsite][i].length; j++) {
+
+                        }
+                    }
+                    else {
+                        document.getElementById('figures').innerHTML += "<a href='" + removeSpace(currentSection) + removeSpace(tree[currentsite][i]) + "/index.html' class='figure'><figure><img src='" + removeSpace(currentSection) + removeSpace(tree[currentsite][i])  + "/" + removeSpace(tree[currentsite][i]) + ".png' alt='" + tree[currentsite][i] + "'><figcaption>" + tree[currentsite][i] + "</figcaption></figure></a>"
+                    }
+                }
+            }
+            
             document.getElementById('header').innerHTML += "<div class='topbarlinks' id='topbarlinks'></div>";
             for (var i = 0; i < topbarlinks.length; i++) {
                 if (topbarlinks[i][0] == currentSite) {
@@ -64,7 +94,6 @@ window.onload = function () {
                 else {
                     var link = back + topbarlinks[i][1] + "/index.html";
                 }
-                console.log(link)
                 document.getElementById('topbarlinks').innerHTML += "<a href='" + link + "'><div class='topbarlink' id='" + topbarlinks[i][0] + "'>" + topbarlinks[i][1] + "</div</a>";
             }
             resize()

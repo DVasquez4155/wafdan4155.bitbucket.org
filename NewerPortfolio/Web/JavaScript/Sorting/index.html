@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--
+Portfolio - December 14, 2016
+By Daniel Vasquez
+-->
+<html>
+    <head id='head'>
+        <title id='title'>JavaScript</title>
+        <style>
+            body  {
+                background-color: #010f20;
+            }
+            .hack {
+                padding: 1em;
+                background-color: azure;
+                margin: 1em;
+                border: 1px solid aquamarine;
+                width: auto;
+            }
+            p {
+                text-align: center;
+            }
+            table {
+                width: 400px;
+                margin: 1em auto;
+            }
+        </style>
+        <script src='../../../contents/headerandfooter.js'></script>
+        <script>
+            var currentSite = 'web';
+            var currentsite = 'Sorting';
+        </script>
+    </head>
+    <body>
+        <header id='header'></header>
+        <div id='links'></div>
+
+        <div class='body'>
+            <h1 id='h1Title' class='title dark'>JavaScript</h1>
+            <div id="container">
+                <p>
+                    <textarea id="user" placeholder="Nothing"></textarea>
+                    <select id='choice'>
+                        <option value='sort'>Alphabetical</option>
+                        <option value='reverse'>Reverse</option>
+                        <option value="shuffle">Shuffle</option>
+                        <option value="caps">Caps</option>
+                        <option value="reverseSent">Reverse Sentence</option>
+                    </select>
+
+                    <input id='submit' type='submit' value='sort'/>
+                </p>
+                <div id='end'></div>
+                <table>
+                    <tr>
+                        <td id='left'></td>
+                        <td id='right'></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <footer id='footer'></footer>
+        <script src="get.js"></script>
+        <script src="shuffle.js"></script>
+        <script>
+            get('#submit').onclick = function () {
+
+                var a = get('#user').value;
+                var userArray = get('#user').value.split(' ');
+
+
+
+
+                //1. Reverse
+                //2. Scramble
+
+                if (get('#choice').value == 'shuffle') {
+                    get('#right').innerHTML = shuffle(userArray).join("<br />");
+                    get('#left').innerHTML = a.replace(/ /g, "<br />");
+                } else if (get('#choice').value == 'sort') {
+                    get('#right').innerHTML = userArray.sort().join("<br />");
+                    get('#left').innerHTML = a.replace(/ /g, "<br />");
+                } else if (get('#choice').value == 'reverse') {
+                    get('#right').innerHTML = userArray.sort().reverse().join("<br />");
+                    get('#left').innerHTML = a.replace(/ /g, "<br />");
+                } else if (get('#choice').value == 'caps') {
+                    for (var i = 0; i < userArray.length; i++) {
+                        userArray[i] = userArray[i].toUpperCase()
+                    }
+                        get('#right').innerHTML = userArray.join("<br />");
+                        get('#left').innerHTML = a.replace(/ /g, "<br />");
+                } else if (get('#choice').value == 'reverseSent') {
+                    get('#right').innerHTML = userArray.reverse().join("<br />");
+                    get('#left').innerHTML = a.replace(/ /g, "<br />");
+                }
+
+
+            }
+        </script>
+    </body>
+
+</html>

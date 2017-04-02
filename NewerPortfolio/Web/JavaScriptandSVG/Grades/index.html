@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--
+Portfolio - December 14, 2016
+By Daniel Vasquez
+-->
+<html>
+    <head id='head'>
+        <title id='title'>Grades</title>
+        <style>
+            body  {
+                background-color: #010f20;
+            }
+
+            input,button {
+                font-size: 25;
+                color:#89DD42;
+                background-color:rgba(9, 92, 169, 0.4);
+                padding: 5;
+                width: 150;
+                text-align: center;
+            }
+            #greeting, #grade {
+                color:darkgray;
+        </style>
+        <script src='../../../contents/headerandfooter.js'></script>
+        <script>
+            var currentSite = 'web';
+            var currentsite = 'Grades';
+        </script>
+    </head>
+    <body>
+        <header id='header'></header>
+        <div id='links'></div>
+
+        <div class='body'>
+            <h1 id='h1Title' class='title dark'>Grades</h1>
+            <div id="container">
+                <form>
+                    <input id="grade1" type="text" maxlength="7" value="100%">
+                    <input id="grade2" type="text" maxlength="7" value="100%">
+                    <input id="grade3" type="text" maxlength="7" value="100%">
+                    <input id="grade4" type="text" maxlength="7" value="100%">
+                    <input id="grade5" type="text" maxlength="7" value="100%">
+                </form>
+                <button style="cursor:pointer" id="gradeLimit">Calculate</button>
+                <button style="cursor:pointer" id="grades">No Limit</button>
+                <p>Your average percantage and GPA will appear here.</p>
+                <p id="greeting">　</p>
+                <p id="grade">　</p>
+                <script>
+                    var input = document.getElementsByTagName('input');
+                    var averagepercentage = "% is your average percentage. While ";
+                    var gpaEnd = " is your gpa.";
+                    var greeting = "Invalid Character Detected";
+                    var limit = false;
+
+
+                    document.getElementById('gradeLimit').onclick = function() {
+                        limit = true;
+                        document.getElementById('grades').click()
+                    }
+
+
+                    document.getElementById('grades').onclick = function() {
+                        var grade = [];
+                        var j = 0;
+                        var added = 0;
+                        var percentCalc = 0;
+                        var gpaCalc = 0;
+                        var percent = 0;
+                        var gpa = 0;
+                        //Loop
+                        for(var i=0; i<input.length; i++) {
+                            if (input[i].value != '') {
+                                grade[j] = input[i].value;
+                                j++
+                            }
+                        }
+                        for(var i=0; i<grade.length; i++) {
+                            added += (parseFloat(grade[i]));
+                            if (grade.length == i+1) {
+                                percent = added / grade.length;
+                                gpa = added / (grade.length * 25);
+                            }
+                        }
+                        if (limit == true) {
+                            percent = Math.round(percent * 100) / 100;
+                            gpa = (Math.round(gpa * 100) / 100).toFixed(2);
+                        }
+                        var end = percent + averagepercentage + gpa + gpaEnd;
+
+                        if (gpa >= 4) {
+                            greeting = "Congrats Mr. Try Hard";
+                        } else if (gpa >= 3) {
+                            greeting = "Nice, you're doing great";
+                        } else if (gpa >= 2) {
+                            greeting = "Uhh.. Try to do better";
+                        } else if (gpa >= 0) {
+                            greeting = "You're working on those grades right?..";
+                        }
+
+                        if (percent >= 200) {
+                            end = "Congrats Mr. Try Hard";
+                            greeting = "Your grades are too high.. Hacker";
+                        } else if (percent < 0) {
+                            end = "You're working on that grade right?..";
+                            greeting = "How are you failing this badly..";
+                        } else if (isNaN(percent)) {
+                            end = "　";
+                            greeting = "Invalid Character Detected";
+
+                        }
+
+                        document.getElementById("greeting").innerHTML = greeting;
+                        document.getElementById("grade").innerHTML = end;
+                        limit = false;
+                    }
+                </script>
+                
+            </div>
+        </div>
+
+        <footer id='footer'></footer>
+    </body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+Portfolio - December 14, 2016
+By Daniel Vasquez
+-->
+<html>
+    <head id='head'>
+        <title id='title'>JavaScript</title>
+        <style>
+            body  {
+                background-color: #010f20;
+            }
+            .hack {
+                padding: 1em;
+                background-color: azure;
+                margin: 1em;
+                border: 1px solid aquamarine;
+                width: auto;
+            } 
+        </style>
+        <script src='../../../contents/headerandfooter.js'></script>
+        <script>
+            var currentSite = 'web';
+            var currentsite = 'Random String';
+        </script>
+    </head>
+    <body>
+        <header id='header'></header>
+        <div id='links'></div>
+
+        <div class='body'>
+            <h1 id='h1Title' class='title dark'>JavaScript</h1>
+            <div id="container">
+                <button id="randomButton">Random</button>
+                <div id="randomId"></div>
+            </div>
+        </div>
+
+        <footer id='footer'></footer>
+        <script>
+            //Variables
+            var letters = "abcdefghijklmnopqrstuvwxyz";
+            //Click Event
+            function get(id) {
+                return document.getElementById(id);
+            }
+            //button
+            get("randomButton").onclick = generateRandom;
+            //Random
+            function random(a) {
+                return a[Math.floor(Math.random()*a.length)];
+            }
+            //Generator
+            function generateRandom (e) {
+                var randomString = "";
+                var i = 0;
+                while (i < 6) {
+                    get('randomId').textContent = (random(letters));
+                    i++;
+                }
+            }
+            //Change Text
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--
+Portfolio - December 14, 2016
+By Daniel Vasquez
+-->
+<html>
+    <head id='head'>
+        <title id='title'>JavaScript</title>
+        <style>
+            body  {
+                background-color: #010f20;
+            }
+            .color { display: inline-block;
+            padding: 3em;
+            font-size:25px;
+            margin: 50px;
+            border: 3px solid black;
+            cursor: pointer;
+            user-drag: none; 
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+        #red {
+            background-color: red
+        }
+        #green {
+            background-color: green
+        }
+        #blue {
+            background-color: blue
+        }
+        #font {
+            text-align: center;
+            font-family: 'Keania One';
+            color: lightgrey;
+            font-size: 3em;
+            user-drag: none; 
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+        #end {
+            width: 550px;
+        }
+        </style>
+        <script src='../../../contents/headerandfooter.js'></script>
+        <script>
+            var currentSite = 'web';
+            var currentsite = 'Crazy Buttons';
+        </script>
+    </head>
+    <body>
+        <header id='header'></header>
+        <div id='links'></div>
+
+        <div class='body'>
+            <h1 id='h1Title' class='title dark'>JavaScript</h1>
+            <div id="container">
+                <center id="Font">
+                    <div id="red" class="color">red</div>
+                    <div id="green" class="color">green</div>
+                    <div id="blue" class="color">blue</div>
+                    <p></p>
+                    <p></p>
+                </center>
+            </div>
+        </div>
+
+        <footer id='footer'></footer>
+        <script>
+            // Variables
+            var red = document.getElementById('red');
+            var green = document.getElementById('green');
+            var blue = document.getElementById('blue');
+            var red = document.getElementById('red').style.backgroundColor = red;
+            var green = document.getElementById('green').style.backgroundColor = green;
+            var blue = document.getElementById('blue').style.backgroundColor = blue;
+            var threeColors = ["red", "green", "blue"]
+            var colors= ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"]
+            var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+            red.onclick = clicked;
+            green.onclick = clicked;
+            blue.onclick = clicked;
+            // Functions
+            function random(c) {
+                return c[Math.floor(Math.random()*c.length)];
+            }
+            function clicked(e) {
+                //Random
+                rColor = ("#" + random(colors) + random(colors) + random(colors) + random(colors) + random(colors) + random(colors));
+                rNumber = (random(numbers) + random(numbers) + "%");
+                rSize = (random(numbers) + random(numbers) + "px");
+                rThreeColors = (random(threeColors));
+                //Color Changer
+                if (e.target.id == e.target.style.backgroundColor) {
+                    e.target.style.backgroundColor = rColor;
+                    document.getElementById("title").style.color = rColor;
+                    e.target.style.Color = rColor = e.target.id;
+                    e.target.style.height =  rNumber;
+                    e.target.style.width =  rNumber;
+                    e.target.style.fontFamily = "Comic Sans MS";
+                    e.target.style.fontSize = rSize;
+                }
+                else {
+                    e.target.style.backgroundColor = e.target.id;
+                    document.getElementById(rThreeColors).style.color = rColor;
+                    document.getElementById("title").style.color = e.target.id;
+                    e.target.style.fontFamily = "Keania One";
+                    e.target.style.width =  "auto"
+                    e.target.style.height =  "auto"
+                    e.target.style.fontSize = "25px";
+                }
+            }
+        </script>
+    </body>
+
+</html>

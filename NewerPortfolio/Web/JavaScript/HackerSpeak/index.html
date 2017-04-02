@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!--
+Portfolio - December 14, 2016
+By Daniel Vasquez
+-->
+<html>
+    <head id='head'>
+        <title id='title'>JavaScript</title>
+        <style>
+            body  {
+                background-color: #010f20;
+            }
+            .hack {
+                padding: 1em;
+                background-color: azure;
+                margin: 1em;
+                border: 1px solid aquamarine;
+                width: auto;
+            } 
+        </style>
+        <script src='../../../contents/headerandfooter.js'></script>
+        <script>
+            var currentSite = 'web';
+            var currentsite = 'Hacker Speak';
+        </script>
+    </head>
+    <body>
+        <header id='header'></header>
+        <div id='links'></div>
+
+        <div class='body'>
+            <h1 id='h1Title' class='title dark'>JavaScript</h1>
+            <div id="container">
+                <div class="hack">
+                    <button id="randomButton">Random</button>
+                    <div id="randomId"></div>
+                </div>
+                <div class="hack">
+                    <input type="text" id="hackerSpeak" onchange="generateHacker()" onkeyup="generateHacker()"/>
+                    <button id="hackerSpeakButton">Hacker Speak</button>
+                    <div id="hackerSpeakText"></div>
+                </div>
+                <div class="hack">
+                    <input type="text" id="capsSpeak" />
+                    <button id="capsSpeakButton">Caps Speak</button>
+                <div id="capsSpeakText"></div>
+                </div>
+                <div class="hack">
+                    <input type="text" id="encryptSpeak" />
+                    <button id="encryptSpeakButton">Encrypt</button>
+                <div id="encryptSpeakText"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer id='footer'></footer>
+        <script>
+            //Variables
+            var alphabet = "abcdefghijklmnopqrstuvwxyz";
+            //Click Event
+            function get(id) {
+                return document.getElementById(id);
+            }
+            //button
+            get("randomButton").onclick = generateRandom;
+            //Generator
+            function generateRandom (e) {
+                var randomString = "";
+                var i = 0;
+                while (i < 42) {
+                    var index = 2 + Math.floor(Math.random() * 24);
+                    randomString += alphabet[index];
+
+                    i++;
+                }
+                get("randomId").textContent = randomString;
+            }
+            //Change Text
+        </script>
+        <script>
+            //Functions
+            get("hackerSpeakButton").onclick = generateHacker
+
+            function generateHacker (e) {
+                var output = "";
+                var input = get('hackerSpeak').value;
+
+                for (var i = 0; i < input.length; i++) {
+                    if (input[i] == "a") 
+                        output += "4";
+                    else if (input[i] == "e") 
+                        output += "3";
+                    else if (input[i] == "i") 
+                        output += "1";
+                    else if (input[i] == "o") 
+                        output += "0";
+                    else if (input[i] == "m") 
+                        output += "nn";
+                    else
+                        output += input[i];
+                }
+                get("hackerSpeakText").textContent = output;
+            }
+        </script>
+        <script>
+            //Functions
+            get("capsSpeakButton").onclick = generateCaps
+
+            function generateCaps (e) {
+                var output = "";
+                var input = get('capsSpeak').value;
+
+                for (var i = 0; i < input.length; i++) {
+                    if (Math.random() < 0.5)
+                        output += input[i].toLowerCase();
+                    else
+                        output += input[i].toUpperCase();
+                }
+                get("capsSpeakText").textContent = output;
+            }
+        </script>
+        <script>
+            //Functions
+            get("encryptSpeakButton").onclick = generateEncrypt
+
+            function bump (c, n) {
+                return String.fromCharCode(c.charCodeAt(0) + n);
+            }
+            function charInString (c, s) {
+                return (s.indexOf(c) > -1);
+            }
+            function generateEncrypt (e) {
+                var output = "";
+                var input = get('encryptSpeak').value;
+                for (var i = 0; i < input.length; i++) {
+                    var c = input[i]
+                    if (charInString(c.toLowerCase(), alphabet)) {
+                        if (c.toUpperCase() <= 'M') {
+                            c = bump (c, 13);
+                        }
+                        else {
+                            c = bump (c, -13);
+                        }
+                        output += c;
+                    }
+                    else {
+                        output += c;
+                    }
+                get("encryptSpeakText").textContent = output;
+                }
+            }
+        </script>
+    </body>
+
+</html>

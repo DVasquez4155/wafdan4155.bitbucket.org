@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+Portfolio - December 14, 2016
+By Daniel Vasquez
+-->
+<html>
+    <head id='head'>
+        <title id='title'>JavaScript</title>
+        <style>
+            body  {
+                background-color: #010f20;
+            }
+            .hack {
+                padding: 1em;
+                background-color: azure;
+                margin: 1em;
+                border: 1px solid aquamarine;
+                width: auto;
+            } 
+        </style>
+        <script src='../../../contents/headerandfooter.js'></script>
+        <script>
+            var currentSite = 'web';
+            var currentsite = 'Text Box';
+        </script>
+    </head>
+    <body>
+        <header id='header'></header>
+        <div id='links'></div>
+
+        <div class='body'>
+            <h1 id='h1Title' class='title dark'>JavaScript</h1>
+            <div id="container">
+                <input id="user" type="text" value="red"/>
+                <input id="user2" type="text" value="lightgreen"/>
+                <input id="submit" type="submit"/>
+                <div>
+                    <input id="firstNumber" type="number" value="1"/>
+                    <input id="equationButton" type="submit" value='+'/>
+                    <input id="secondNumber" type="number" value="2"/>
+                    <input id="endButton" type="submit" value='='/>
+                    <div id='end'></div>
+                </div>
+            </div>
+        </div>
+
+        <footer id='footer'></footer>
+        <script src="get.js"></script>
+        <script>
+            get('#submit').onclick = function () {
+                get('.body')[0].style.backgroundColor = get('#user').value;
+                get('body')[0].style.color = get('#user2').value;
+            }
+            
+            function next() {
+                if (get('#equationButton').value == "+") {
+                    get('#equationButton').value = "-";
+                } else if (get('#equationButton').value == "-") {
+                    get('#equationButton').value = "*";
+                } else if (get('#equationButton').value == "*") {
+                    get('#equationButton').value = "/";
+                } else if (get('#equationButton').value == "/") {
+                    get('#equationButton').value = "+";
+                }
+            }
+            get('#equationButton').onclick = function() {
+                next();
+            }
+            get('#endButton').onclick = function() {
+                var firstNumber = (parseFloat(get('#firstNumber').value))
+                var secondNumber = (parseFloat(get('#secondNumber').value))
+                
+                if (get('#equationButton').value == "+") {
+                     get('#end').innerHTML = firstNumber + secondNumber
+                } else if (get('#equationButton').value == "-") {
+                     get('#end').innerHTML = firstNumber - secondNumber
+                } else if (get('#equationButton').value == "*") {
+                     get('#end').innerHTML = firstNumber * secondNumber
+                } else if (get('#equationButton').value == "/") {
+                     get('#end').innerHTML = firstNumber / secondNumber
+                }
+                
+            }
+        </script>
+    </body>
+
+</html>
